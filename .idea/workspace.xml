@@ -1,7 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="96aba9aa-5aac-4243-915d-465e0a0e1097" name="Default Changelist" comment="" />
+    <list default="true" id="96aba9aa-5aac-4243-915d-465e0a0e1097" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/미세먼지안녕.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/python_algo.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/python_algo.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -14,6 +20,9 @@
       </list>
     </option>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="ProjectId" id="1ZLCRLg0iUnQY5QBRfE5vFWsHTD" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -22,16 +31,20 @@
   </component>
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="run.code.analysis.last.selected.profile" value="aDefault" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\multicampus\Desktop\jigglypop" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="E:\python_algo" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.아기상어">
+  <component name="RunManager" selected="Python.미세먼지안녕">
     <configuration name="연습" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="python_algo" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -74,6 +87,27 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="미세먼지안녕" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="python_algo" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/미세먼지안녕.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="BFS" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="python_algo" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -87,6 +121,27 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/BFS.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="아기상어" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="python_algo" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/아기상어.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -158,34 +213,13 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="quick_sort" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="python_algo" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/quick_sort.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.미세먼지안녕" />
         <item itemvalue="Python.아기상어" />
         <item itemvalue="Python.BFS" />
         <item itemvalue="Python.연습" />
         <item itemvalue="Python.merge_sort" />
-        <item itemvalue="Python.quick_sort" />
       </list>
     </recent_temporary>
   </component>
@@ -215,22 +249,22 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="548" y="167" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1584610171272" />
-    <state width="987" height="301" key="GridCell.Tab.0.bottom" timestamp="1585393912222">
+    <state width="1451" height="397" key="GridCell.Tab.0.bottom" timestamp="1585422675738">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="987" height="301" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1585393912222" />
-    <state width="987" height="301" key="GridCell.Tab.0.center" timestamp="1585393912222">
+    <state width="1451" height="397" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1585422675738" />
+    <state width="1451" height="397" key="GridCell.Tab.0.center" timestamp="1585422675738">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="987" height="301" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1585393912222" />
-    <state width="987" height="301" key="GridCell.Tab.0.left" timestamp="1585393912222">
+    <state width="1451" height="397" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1585422675738" />
+    <state width="1451" height="397" key="GridCell.Tab.0.left" timestamp="1585422675738">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="987" height="301" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1585393912222" />
-    <state width="987" height="301" key="GridCell.Tab.0.right" timestamp="1585393912222">
+    <state width="1451" height="397" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1585422675738" />
+    <state width="1451" height="397" key="GridCell.Tab.0.right" timestamp="1585422675738">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="987" height="301" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1585393912222" />
+    <state width="1451" height="397" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1585422675738" />
     <state width="985" height="242" key="GridCell.Tab.1.bottom" timestamp="1584625329164">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -247,21 +281,32 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state width="985" height="242" key="GridCell.Tab.1.right/0.0.1536.824@0.0.1536.824" timestamp="1584625329164" />
-    <state x="277" y="54" key="SettingsEditor" timestamp="1584610242730">
+    <state x="277" y="54" key="SettingsEditor" timestamp="1585415935333">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="277" y="54" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1584610242730" />
-    <state x="465" y="236" key="com.intellij.ide.util.TipDialog" timestamp="1585381551422">
+    <state x="277" y="54" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1585415935333" />
+    <state x="465" y="236" key="com.intellij.ide.util.TipDialog" timestamp="1585416137937">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="465" y="236" key="com.intellij.ide.util.TipDialog/0.0.1536.824@0.0.1536.824" timestamp="1585381551422" />
-    <state x="1140" y="186" width="549" height="491" key="dock-window-1" timestamp="1585381902643">
+    <state x="465" y="236" key="com.intellij.ide.util.TipDialog/0.0.1536.824@0.0.1536.824" timestamp="1585416137937" />
+    <state x="1062" y="18" width="489" height="546" key="dock-window-1" timestamp="1585416431361">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="1140" y="186" width="549" height="491" key="dock-window-1/0.0.1536.824@0.0.1536.824" timestamp="1585381902643" />
+    <state x="1062" y="18" width="489" height="546" key="dock-window-1/0.0.1536.824@0.0.1536.824" timestamp="1585416431361" />
     <state x="753" y="110" width="781" height="488" key="dock-window-2" timestamp="1584621142705">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="753" y="110" width="781" height="488" key="dock-window-2/0.0.1536.824@0.0.1536.824" timestamp="1584621142705" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/미세먼지안녕.py</url>
+          <line>5</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
