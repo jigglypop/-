@@ -17,7 +17,6 @@ def solution(n, t, m, p):
     for i in idx:
         answer += numbers[i]
     return answer
-
 solution(2,4,2,1)
 
 
