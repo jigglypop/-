@@ -1,27 +1,9 @@
 import pprint
 
 
-def combinations(arr, r):
-    R = []
-    chosen = []
-
-    def comb(k, start):
-        if k == r:
-            copy = chosen[::]
-            R.append(copy)
-            return
-        for i in range(start, len(arr)):
-            chosen.append(arr[i])
-            comb(k+1, i+1)
-            chosen.pop()
-    comb(0, 0)
-    return R
-
-
 def permutations(arr, r):
     R = []
     used = [0 for _ in range(len(arr))]
-
     def perm(k, chosen, used):
         if k == r:
             copy = chosen[::]
@@ -38,5 +20,4 @@ def permutations(arr, r):
 
 
 pprint.pprint(permutations('ABCDE', 2))
-print('---------------')
-pprint.pprint(combinations('ABCDE', 2))
+
