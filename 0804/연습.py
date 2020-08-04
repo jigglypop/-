@@ -13,25 +13,20 @@ for _ in range(m):
     graph[a].append((b, c))
 
 
-print(graph)
-
-
 def Dijkstra(start):
     q = []
-    heapq.heappush(q, (0, start))
     distance[start] = 0
-    print(distance)
-    print(heapq)
-    print(q)
+    heapq.heappush(q, (0, start))
     while q:
         dist, now = heapq.heappop(q)
-        print(dist, now)
-# Dijkstra(start)
+        if distance[now] < dist:
+            continue
+        for point in graph[now]:
+            cost = dist + point[1]
+            if cost < distance[point[0]]:
+                distance[point[0]] = cost
+                heapq.heappush(q, (cost, point[0]))
 
 
-# for i in range(1, n+1):
-#     if distance[i] == INF:
-#         print("INF")
-#     else:
-#         print(distance[i])
 Dijkstra(start)
+print(distance)
