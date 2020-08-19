@@ -27,3 +27,6 @@ class Solution:
                 return False
 
         return True
+
+
+solution = Solution.isPalindrome(1 -> 2)
