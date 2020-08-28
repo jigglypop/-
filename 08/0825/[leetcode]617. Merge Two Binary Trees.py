@@ -10,7 +10,7 @@ class TreeNode:
         self.right = right
 
     def __repr__(self):
-        return 'TreeNode({} : {},{})'.format(self.val, self.left, self.right)
+        return f'TreeNode({self.val} : {self.left}, {self.right})'
 
 
 def deserialize(string):
@@ -35,8 +35,6 @@ class Solution:
         t1 = node1[0]
         node2 = deserialize(t2)
         t2 = node2[0]
-        pprint(node1)
-        pprint(node2)
 
 
 solution = Solution()
