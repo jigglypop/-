@@ -1,6 +1,12 @@
 import sys
 sys.stdin = open("크루스칼.txt", 'r')
 
+
+# 크루스칼 순서
+# 간선 cost 작은 순으로 정렬
+# union/find for문으로 뿌리가 같은지 검사
+
+
 V, E = map(int, input().split())
 # parent 만들기
 parent = [i for i in range(V+1)]

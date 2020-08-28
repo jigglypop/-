@@ -5,7 +5,10 @@
 using namespace std;
 int main()
 {
-    vector<int> v{1, 2, 3, 2, 5, 2, 6, 2, 4, 8};
+    vector<int> v;
+    v.push_back(1);
+    v.push_back(2);
+    v.push_back(3);
     const auto new_end(remove(begin(v), end(v), 2));
     v.erase(new_end, end(v));
     for (auto i : v)
