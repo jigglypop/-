@@ -17,11 +17,11 @@ int main()
         cout << i << ", ";
     }
     cout << "\n";
-    quick_remove_at(v, find(begin(v), end(v), 123));
-    for (int i : v)
-    {
-        cout << i << ", ";
-    }
-    cout << "\n";
+    // quick_remove_at(v, find(begin(v), end(v), 123));
+    // for (int i : v)
+    // {
+    //     cout << i << ", ";
+    // }
+    // cout << "\n";
     return 0;
 }
