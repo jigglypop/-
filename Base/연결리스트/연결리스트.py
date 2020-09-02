@@ -1,27 +1,19 @@
-class Node(object):
-    def __init__(self, value=None, pointer=None):
-        self.value = value
-        self.pointer = pointer
-
-    def getData(self):
-        return self.value
-
-    def getNext(self):
-        return self.pointer
-
-    def setData(self, newdata):
-        self.value = newdata
-
-    def setNext(self, newpointer):
-        self.pointer = newpointer
+from __future__ import annotations
+from typing import Any, Type
 
 
-L = Node("a", Node("b", Node("c", Node("d"))))
-assert(L.pointer.pointer.value == "c")
+class Node:
+    def __init__(self, data: Any = None, next: Node = None):
+        self.data = data
+        self.next = next
 
-print(L.getData())
-print(L.getNext().getData())
-L.setData("aa")
-L.setNext(Node("e"))
-print(L.getData())
-print(L.getNext().getData())
+
+class LinkdedList:
+
+    def __init__(self) -> None:
+        self.no = 0
+        self.head = None
+        self.current = None
+
+    def __len__(self) -> int:
+        return self.no
