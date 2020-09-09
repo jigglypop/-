@@ -8,6 +8,43 @@ board = [[1, 2, 3],
 di = [(-1, -1), (-1, 0), (-1, 1),
       (0, -1), (0, 0), (0, 1),
       (1, -1), (1, 0), (1, 1)]
+"""
+-1-1-1
+0 0 0 
+1 1 1
+
+-1 0 1
+-1 0 1
+-1 0 1
+"""
+```
+
+# 배열회전
+
+```python
+# 90도 한줄
+rotated = list(zip(*reversed(arr)))
+
+# 90도
+one = [[0] * 3 for _ in range(3)]
+for y in range(N):
+    for x in range(N):
+        one[x][N-1-y] = arr[y][x]
+# 180도
+two = [[0] * 3 for _ in range(3)]
+for y in range(N):
+    for x in range(N):
+        two[N-1-y][N-1-x] = arr[y][x]
+# 270도
+three = [[0] * 3 for _ in range(3)]
+for y in range(N):
+    for x in range(N):
+        three[N-1-x][y] = arr[y][x]
+# 전치행렬
+four = [[0] * 3 for _ in range(3)]
+for y in range(N):
+    for x in range(N):
+        four[x][y] = arr[y][x]
 ```
 
 
@@ -154,3 +191,80 @@ print(graph)
 
 ```
 
+# 유니온 파인드
+
+```python
+def find(parent, x):
+    if parent[x] != x:
+        parent[x] = find(parent, parent[x])
+    return parent[x]
+
+
+def union(parent, a, b):
+    a = find(parent, a)
+    b = find(parent, b)
+    if a > b:
+        parent[b] = a
+    else:
+        parent[a] = b
+```
+
+# 크루스칼
+
+```python
+V, E = map(int, input().split())
+parent = [i for i in range(V+1)]
+
+edges = []
+for _ in range(E):
+    A, B, C = map(int, input().split())
+    edges.append((C, A, B))
+edges.sort()
+result = 0
+
+for C, A, B in edges:
+    if find(parent, A) != find(parent, B):
+        union(parent, A, B)
+        result += C
+print(result)
+```
+
+# 프림
+
+```python
+from collections import deque
+import heapq
+V, E = map(int, input().split())
+graph = [[] for _ in range(V+1)]
+visited = [False] * (V+1)
+
+for _ in range(E):
+    a, b, c = map(int, input().split())
+    graph[a].append((c, b))
+    graph[b].append((c, a))
+
+heap = []
+visited[1] = True
+result = 0
+cnt = 1
+for a in graph[1]:
+    heapq.heappush(heap, a)
+while heap:
+    cost, to = heapq.heappop(heap)
+    if not visited[to]:
+        visited[to] = True
+        cnt += 1
+        result += cost
+        for u in graph[to]:
+            heapq.heappush(heap, u)
+    if cnt == V:
+        break
+print(result)
+
+```
+
+# 나머지 정리
+
+1) (A+B)%C =((A%C) + (B%C))%C
+
+2) (A*B)%C =((A%C) *(B%C))%C
