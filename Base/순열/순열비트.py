@@ -4,17 +4,16 @@ from pprint import pprint
 def PERM(arr, r):
     result = []
 
-    def perm(k, chosen, used):
+    def perm(k, choice, used):
         if k == r:
-            result.append(chosen[::])
+            result.append(choice[::])
             return
         for i in range(len(arr)):
             if used & (1 << i):
                 continue
-            chosen.append(arr[i])
-            perm(k+1, chosen, used | (1 << i))
-            chosen.pop()
-
+            choice.append(arr[i])
+            perm(k+1, choice, used | (1 << i))
+            choice.pop()
     perm(0, [], 0)
     return result
 

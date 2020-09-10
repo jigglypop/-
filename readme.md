@@ -164,7 +164,35 @@ m.span() # (0, 6) -> tuple
 
 - 're.M' : 여러 줄과 매치
 
-  
+
+
+
+# 위상 정렬(DAG)
+
+```python
+from collections import deque
+
+N, M = map(int, input().split())
+graph = [[] for _ in range(N+1)]
+check = [0 for _ in range(N+1)]
+for i in range(M):
+    a, b = map(int, input().split())
+    graph[A].append(B)
+    check[A] += 1
+Q = deque()
+for i in range(1, N+1):
+    if check[i] == 0:
+        Q.append(i)
+while Q:
+    u = Q.popleft()
+    for v in graph[u]:
+        check[v] -= 1
+        if check[v] == 0:
+            Q.append(v)
+    print(u, end=" ")
+```
+
+
 
 # 다익스트라
 
@@ -263,8 +291,259 @@ print(result)
 
 ```
 
+# 플로이드 
+
+```python
+import sys
+INF = sys.maxsize
+N, M = map(int, input().split())
+graph = [[INF]*(N+1) for _ in range(N+1)]
+for _ in range(M):
+    a, b, c, = map(int, input().split())
+    graph[a][b] = c
+
+for y in range(1, N+1):
+    for x in range(1, N+1):
+        if y == x:
+            graph[y][x] = 0
+
+for z in range(1, N+1):
+    for y in range(1, N+1):
+        for x in range(1, N+1):
+            graph[y][x] = min(graph[y][x], graph[y][z] + graph[z][x])
+
+for y in range(1, N+1):
+    print(graph[y][1:])
+
+```
+
+
+
+
+
 # 나머지 정리
 
 1) (A+B)%C =((A%C) + (B%C))%C
 
 2) (A*B)%C =((A%C) *(B%C))%C
+
+
+
+# DP(LIS)
+
+```
+N = int(input())
+S = [0] + list(map(int, input().split()))
+DP = [0] * (N+1)
+DP[1] = 1
+for i in range(2, N+1):
+    for j in range(1, i):
+        if S[i] > S[j]:
+            DP[i] = max(DP[j], DP[i])
+    DP[i] += 1
+print(max(DP))
+```
+
+
+
+# TOP DOWN
+
+```python
+import sys
+sys.setrecursionlimit(2000*2000)
+def fibonacci(n):
+    if n == 0:
+        return 0
+    if n == 1:
+        return 1
+    if DP[n] != -1:
+        return DP[n]
+    DP[n] = fibonacci(n-1) + fibonacci(n-2)
+    return DP[n]
+n = int(input())
+DP = [-1] * (n+1)
+fibonacci(n)
+print(DP[n])
+```
+
+
+
+# BOTTOM UP
+
+```python
+def fibonacci(n):
+    DP[0] = 0
+    DP[1] = 1
+    for i in range(2, n+1):
+        DP[i] = DP[i-1] + DP[i-2]
+n = int(input())
+DP = [-1] * (n+1)
+fibonacci(n)
+print(DP[n])
+```
+
+
+
+# KMP
+
+```python
+def LPS(pat, lps):
+    leng = 0
+    i = 1
+    while i < len(pat):
+        if pat[i] == pat[leng]:
+            leng += 1
+            lps[i] = leng
+            i += 1
+        else:
+            if leng != 0:
+                leng = lps[leng-1]
+            else:
+                lps[i] = 0
+                i += 1
+
+def KMP(pat, txt):
+    M = len(pat)
+    N = len(txt)
+    lps = [0]*M
+    LPS(pat, lps)
+    i = 0  # index for txt[]
+    j = 0  # index for pat[]
+    while i < N:
+        if txt[i] == pat[j]:
+            i += 1
+            j += 1
+        elif txt[i] != pat[j]:
+            if j != 0:
+                j = lps[j-1]
+            else:
+                i += 1
+        if j == M:
+            print("Found pattern at index " + str(i-j))
+            j = lps[j-1]
+
+txt = 'ABXABABXAB'
+pat = 'ABXAB'
+KMP(pat, txt)
+```
+
+# 트라이
+
+```python
+from collections import defaultdict
+
+
+class TrieNode:
+    def __init__(self):
+        self.word = False
+        self.children = defaultdict(TrieNode)
+
+    def __repr__(self):
+        return f'TrieNode({self.word}:{self.children.items()})'
+
+
+class Trie:
+    def __init__(self):
+        self.root = TrieNode()
+
+    def insert(self, word):
+        node = self.root
+        for char in word:
+            node = node.children[char]
+        node.word = True
+
+    def search(self, word):
+        node = self.root
+        for char in word:
+            if char not in node.children:
+                return False
+            node = node.children[char]
+        return node.word
+
+trie = Trie()
+trie.insert('apple')
+trie.insert('appeal')
+print(trie.search('apple'))
+```
+
+
+
+# 순열
+
+```python
+def PERM(arr, r):
+    result = []
+
+    def perm(k, choice, used):
+        if k == r:
+            result.append(choice[::])
+            return
+        for i in range(len(arr)):
+            if used & (1 << i):
+                continue
+            choice.append(arr[i])
+            perm(k+1, choice, used | (1 << i))
+            choice.pop()
+
+    perm(0, [], 0)
+    return result
+
+
+result = PERM('ABC', 2)
+```
+
+```python
+def PERM(arr, r):
+    result = []
+    def perm(arr, r):
+        for i in range(len(arr)):
+            if r == 1:
+                yield [arr[i]]
+            else:
+                for next in perm(arr[:i] + arr[i+1:], r-1):
+                    yield [arr[i]] + next
+    for i in perm(arr, r):
+        result.append(i)
+    return result
+ 
+
+result = PERM('ABCDE', 2)
+```
+
+# 조합
+
+```python
+def COMB(arr, r):
+    result = []
+
+    def comb(k, chosen, start):
+        if k == r:
+            result.append(chosen[::])
+            return
+        for i in range(start, len(arr)):
+            chosen.append(arr[i])
+            comb(k+1, chosen, i+1)
+            chosen.pop()
+    comb(0, [], 0)
+    return result
+
+result = COMB('ABCDE', 2)
+```
+
+```python
+def COMB(arr, r):
+    result = []
+    def comb(arr, r):
+        for i in range(len(arr)):
+            if r == 1:
+                yield [arr[i]]
+            else:
+                for next in comb(arr[i+1:], r-1):
+                    yield [arr[i]] + next
+    for i in comb(arr, r):
+        result.append(i)
+    return result
+
+result = COMB('ABCDE', 2)
+```
+

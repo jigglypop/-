@@ -18,8 +18,6 @@ class Trie:
         node = self.root
         for char in word:
             node = node.children[char]
-            print(char)
-            print(node)
         node.word = True
 
     # 단어 존재 여부 판별
@@ -40,7 +38,7 @@ class Trie:
                 return False
             node = node.children[char]
         # 여기만 다름
-        return True3
+        return True
 
 
 trie = Trie()
