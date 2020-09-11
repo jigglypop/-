@@ -53,116 +53,178 @@ for y in range(N):
 
 ------
 
-## 메타 문자 (Meta Characters)
-
-- 정규식에서 사용하는 특별한 의미를 지니는 문자
-
-### 문자 클래스 [ ]
-
-- [ ]사이의 문자들과의 일치성을 확인
-  ex1) [abc] -> 'and'이면 'a'가 있으므로 매치
-  ex2) [abc] -> 'hello'이면 일치하는것이 없으므로 매치 X
-
-- [i-j] '-'는 두 문자 사이 범위를 나타냄
-  ex) [a-zA-Z] = 알파벳 대, 소문자 모두와의 매치 확인
-
-- '^'를 사용하여 not의 의미를 나타냄
-
-  ex) [^a-zA-Z] = 알파벳 대, 소문자가 아닌 문자와의 매치 확인
-
-  > <자주 사용하는 문자 클래스>
-  > \d = [0-9]
-  > \D = [^0-9]
-  > \s = [ \t\n\r\f\v] -> whitespace문자와 매치
-  > \S = [^ \t\n\r\f\v]
-  > \w = [a-zA-Z0-9]
-  > \W = [^a-zA-Z0-9]
-
-### Dot(.)
-
-- \n을 제외한 모든 문자와 매치
-  ex) a.b = a + 모든문자 + b -> abc와는 매치X
-
-### 반복(*) & (+)
-
-- '*****'의 바로 앞 문자가 0번 이상 반복되어 매치되는지 확인
-  ex) do*g -> dg, dog, dooog 모두 매치O
-- '+'의 바로 앞 문자가 1번 이상 반복되어 매치되는지 확인
-  ex) do*g -> dg 매치 X, dog, dooog 매치O
-
-### 반복 ({m, n}, ?)
-
-- 반복 횟수를 설정할 때 사용
-- m, n은 생략가능
-- {m} = m번만 반복
-  ex) do{2}g -> dog 매치 X, doog 매치 O, doooog 매치 X
-- {m, n} = m~n회 반복
-  ex) do{1, 3}g -> doooooog 매치 X
-- ? = {0, 1} = ?앞 문자가 있어도 되고 없어도 됨
-  ex) do?g -> dg, dog, doog 매치 O
-
-## Python re 모듈 사용
-
-- 조건에 맞을 경우 해당 모듈의 객체 반환
-- 맞지 않을 경우 None 반환
-
-### match
-
-- 처음부터 매치되는지 확인
-
 ```python
-import re
-
-# 비밀번호 검정 함수
-def password_validation_check(pwd_signin):
-    p = re.compile('\S')
-
-    pw = p.match(pwd_signin) # 조건에 맞을 경우 match객체 반환
-
-    if pw:
-        return True
-    else:
-        return False
+re.match("Hello","Hello, world!") 
+# Hello
+re.match("Python","Hello, world!")	
+# None
+re.search("^Hello","Hello,world") 
+# Hello
 ```
 
-### search
+* `^` : 문자열이 맨 앞에 오는지
 
-- 전체에서 매치되는지 확인
-
-```python
-p = re.compile('[a-z]+')
-
-m = p.search('25abc') # 객체 반환
-```
-
-### findall
-
-- 매치해서 리스트로 돌려줌
+* `$` : 문자열이 맨 뒤에 오는지
 
 ```python
-m = p.findall('My dream was to be a pilot')
-print(m)
-
-# ['My', 'dream', 'was', 'to', 'be', 'a', 'pilot']
+re.search("^Hello","Hello,world") 
+# Hello
+re.search("^Hello","hi,Hello,world") 
+# None
+re.search("world$","Hello, world")	
+# world
 ```
 
-### match 객체 메소드
+* `|` : 문자열이 하나라도 포함되는지
 
 ```python
-m = p.match('pyhon')
-
-m.group() # 'python'
-
-m.start() # 0
-
-m.end() # 6
-
-m.span() # (0, 6) -> tuple
+re.match("hello|world","hello") 
+# hello
 ```
 
-- 're.I' : 대소문자 관계없이 매치
+* `*` : 문자(숫자)가 0개 이상인지
 
-- 're.M' : 여러 줄과 매치
+* `+` : 문자(숫자)가 1개 이상인지
+
+```python
+re.match('[0-9]+','1234') 
+# 1234
+re.match('[0-9]*','1234') 
+# 1234
+re.match('[0-9]*','abcd') 
+# None
+re.match('a*b','b') 
+# b
+re.match('a+b','b') 
+# None
+re.match('a*b','aab') 
+# aab
+re.match('a+b','aab') 
+# aab
+```
+
+- `?` : 문자가 0개 또는 1개인지
+- `.` : 문자가 1개인지
+
+```python
+re.match('H?','H')	
+# H?
+re.match('H?','Hi')	
+# H?
+re.match('H.','Hi')	
+# H.
+```
+
+- `문자{개수}`: "문자"가 "개수"만큼 있는지
+- `문자열{개수}`: "문자열"이 "개수"만큼 있는지
+- `[0-9]{개수}`: "숫자"기 "개수"만큼 있는지
+
+```python
+re.match('h{3}','hhhello')	
+# hhh
+re.match('(hello){3}','hellohellohello')	
+# hellohellohello
+re.match('[0-9]{3}-[0-9]{3}-[0-9]{4}','010-101-0101')	
+# 010-101-0101
+```
+
+- `a-z`: 소문자
+- `A-Z`: 대문자
+- `가-힣`: 한글
+
+```python
+re.match('[a-zA-Z0-9]+','Hello1234')	
+# Hello1234
+re.match('[A-Z0-9]+','hello')	
+# None
+re.match('[가-힣]+','홍길동')	
+# 홍길동
+```
+
+- `[^범위]*`
+- `[^범위]+`
+
+```python
+re.search("[^A-Z]*",'hello') 
+# hello
+re.search("[^A-Z]+",'hello')  
+# hello
+```
+
+- `[범위]*$`
+- `[범위]*+`
+
+```python
+re.search("[0-9]+$",'Hello1234') 
+# 1234
+```
+
+- `\특수문자` : 특수 문자 판단
+- `\d` : 모든 숫자
+- `\D` : 숫자가 아닌 모든 문자
+- `\w` : 영문 대소문자, 숫자, 밑줄 문자
+- `\D` : 영문 대소문자, 숫자, 밑줄 문자가 아닌 모든 문자
+- `\s` : 공백, \t, \n, \r, \f, \v 을 포함
+- `\S` : 공백을 제외하고 \t, \n, \r, \f, \v만 포함
+
+```python
+re.search('\*+',"1 ** 2")	
+# **
+re.search('\d+','1234')	
+# 1234
+re.search('\D+','1234')	
+# None
+re.search('\D+','Hello') 
+# Hello
+re.search('\w+','Hello_1234') 
+# Hello_1234
+re.search('[a-zA-Z0-9 ]+',"Hello 1234") 
+# Hello 1234
+re.search('[a-zA-Z0-9\s]+',"Hello 1234") 
+# Hello 1234
+```
+
+- `(정규 표현식) (정규 표현식)`
+- `매치객체.group(숫자)` : 그룹에 해당하는 문자열(숫자)를 가져옴
+- `매치객체.groups()` : 그룹에 해당하는 문자열(숫자)을 튜플로 반환
+- `(?P<이름>정규표현식)` -> `매치객체.group('그룹이름')`: 그룹에 이름을 지은 뒤 반환
+
+```python
+r1 = re.match('([0-9]+) ([0-9]+)','10 123')
+print(r1.group(1)) 
+# 10
+print(r1.group(2))	
+# 123
+print(r1.group())	
+# 10 123
+print(r1.group(0))	
+# 10 123
+print(r1.groups())	
+# ('10','123')
+r1 = re.match('(?P<func>[a-zA-Z_][a-zA-Z0-9_]+)\((?P<arg>\w+)\)','print(1234)')
+print(r1.group('func'))
+# print
+print(r1.group('arg'))
+# 1234
+```
+
+- `re.findall('패턴','문자열')`
+
+```python
+re.findall('[0-9]+','1 2 Fizz 4 Buzz Fizz 7 8')
+# ['1', '2', '4', '7', '8']
+```
+
+- `re.sub('패턴','바꿀 문자열','문자열',바꿀 횟수)`
+- `re.sub('패턴',교체함수,'문자열',바꿀 횟수)`
+
+```python
+re.sub('apple|orange','fruit','apple box orange tree')
+# fruit box fruit tree
+re.sub('[0-9]+',lambda m: str(int(m.group()) * 10),'1 2 Fizz 4 Buzz Fizz 7 8')
+# 10 20 Fizz 40 Buzz Fizz 70 80
+```
+
 
 
 
@@ -545,5 +607,20 @@ def COMB(arr, r):
     return result
 
 result = COMB('ABCDE', 2)
+```
+
+# 부분집합
+
+```python
+def SUBSET(nums):
+    result = []
+    def subset(index, path):
+        result.append(path)
+        for i in range(index, len(nums)):
+            subset(i+1, path+[nums[i]])
+    subset(0, [])
+    return result
+
+result = SUBSET([1, 2, 3])
 ```
 
