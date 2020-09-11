@@ -1,12 +1,4 @@
-
-
-# 1. 파이썬 기본
-
----
-
-
-
-### 배열조작
+# 배열조작
 
 ```python
 board = [[1, 2, 3],
@@ -16,9 +8,18 @@ board = [[1, 2, 3],
 di = [(-1, -1), (-1, 0), (-1, 1),
       (0, -1), (0, 0), (0, 1),
       (1, -1), (1, 0), (1, 1)]
+"""
+-1-1-1
+0 0 0 
+1 1 1
+
+-1 0 1
+-1 0 1
+-1 0 1
+"""
 ```
 
-### 배열회전
+# 배열회전
 
 ```python
 # 90도 한줄
@@ -46,27 +47,9 @@ for y in range(N):
         four[x][y] = arr[y][x]
 ```
 
-### 정렬
-
-```python
-a = [(1, 2), (0, 1), (5, 1), (5, 2), (3, 0)]
-b = sorted(a)
-# [(0, 1), (1, 2), (3, 0), (5, 1), (5, 2)]
-c = sorted(a, key=lambda x: x[0])
-# [(0, 1), (1, 2), (3, 0), (5, 1), (5, 2)]
-
-d = sorted(a, key=lambda x: x[1])
-# [(3, 0), (0, 1), (5, 1), (1, 2), (5, 2)]
-
-# 첫번째 오름차순, 두번째 내림차순
-e = [(1, 3), (0, 3), (1, 4), (1, 5), (0, 1), (2, 4)]
-f = sorted(e, key=lambda x: (x[0], -x[1]))
-# [(0, 3), (0, 1), (1, 5), (1, 4), (1, 3), (2, 4)]
-```
 
 
-
-# 2. 정규 표현식
+# 정규 표현식 (Regular Expressions)
 
 ------
 
@@ -244,46 +227,9 @@ re.sub('[0-9]+',lambda m: str(int(m.group()) * 10),'1 2 Fizz 4 Buzz Fizz 7 8')
 
 
 
-# 3. 그래프
 
-### DFS
 
-```python
-def DFS(graph, v, visited):
-    visited[v] = True
-    print(v, end=" ")
-    for i in graph[v]:
-        if not visited[i]:
-            DFS(graph, i, visited)
-
-graph = [[], [2, 3, 8], [1, 7], [1, 4, 5],
-         [3, 5], [3, 4], [7], [2, 6, 8], [1, 7]]
-visited = [False] * 9
-
-DFS(graph, 1, visited)
-```
-
-### BFS
-
-```python
-from collections import deque
-
-def BFS(graph, start, visited):
-    queue = deque([start])
-    visited[start] = True
-    while queue:
-        v = queue.popleft()
-        print(v, end=" ")
-        for i in graph[v]:
-            if not visited[i]:
-                queue.append(i)
-                visited[i] = True
-
-graph = [[], [2, 3, 8], [1, 7], [1, 4, 5],
-         [3, 5], [3, 4], [7], [2, 6, 8], [1, 7]]
-```
-
-### 위상 정렬(DAG)
+# 위상 정렬(DAG)
 
 ```python
 from collections import deque
@@ -308,13 +254,13 @@ while Q:
     print(u, end=" ")
 ```
 
-### 다익스트라
+
+
+# 다익스트라
 
 ---
 
 ```python
-from collections import defaultdict
-
 V, E = map(int, input().split())
 start = int(input())
 graph = defaultdict(list)
@@ -335,7 +281,7 @@ print(graph)
 
 ```
 
-### 유니온 파인드
+# 유니온 파인드
 
 ```python
 def find(parent, x):
@@ -353,7 +299,7 @@ def union(parent, a, b):
         parent[a] = b
 ```
 
-### 크루스칼
+# 크루스칼
 
 ```python
 V, E = map(int, input().split())
@@ -373,7 +319,7 @@ for C, A, B in edges:
 print(result)
 ```
 
-### 프림
+# 프림
 
 ```python
 from collections import deque
@@ -407,7 +353,7 @@ print(result)
 
 ```
 
-### 플로이드 
+# 플로이드 
 
 ```python
 import sys
@@ -437,17 +383,17 @@ for y in range(1, N+1):
 
 
 
+# 나머지 정리
+
+1) (A+B)%C =((A%C) + (B%C))%C
+
+2) (A*B)%C =((A%C) *(B%C))%C
 
 
-# 4. DP
 
----
+# DP(LIS)
 
-
-
-### DP(LIS)
-
-```python
+```
 N = int(input())
 S = [0] + list(map(int, input().split()))
 DP = [0] * (N+1)
@@ -460,7 +406,9 @@ for i in range(2, N+1):
 print(max(DP))
 ```
 
-### TOP DOWN
+
+
+# TOP DOWN
 
 ```python
 import sys
@@ -480,7 +428,9 @@ fibonacci(n)
 print(DP[n])
 ```
 
-### BOTTOM UP
+
+
+# BOTTOM UP
 
 ```python
 def fibonacci(n):
@@ -494,7 +444,9 @@ fibonacci(n)
 print(DP[n])
 ```
 
-### KMP
+
+
+# KMP
 
 ```python
 def LPS(pat, lps):
@@ -537,7 +489,7 @@ pat = 'ABXAB'
 KMP(pat, txt)
 ```
 
-### 트라이
+# 트라이
 
 ```python
 from collections import defaultdict
@@ -578,9 +530,7 @@ print(trie.search('apple'))
 
 
 
-# 5. 순열 조합
-
-### 순열
+# 순열
 
 ```python
 def PERM(arr, r):
@@ -622,7 +572,7 @@ def PERM(arr, r):
 result = PERM('ABCDE', 2)
 ```
 
-### 조합
+# 조합
 
 ```python
 def COMB(arr, r):
@@ -659,7 +609,7 @@ def COMB(arr, r):
 result = COMB('ABCDE', 2)
 ```
 
-### 부분집합
+# 부분집합
 
 ```python
 def SUBSET(nums):
@@ -674,184 +624,3 @@ def SUBSET(nums):
 result = SUBSET([1, 2, 3])
 ```
 
-
-
-# 6. 트리
-
-```python
-class TreeNode:
-    def __init__(self, val, left=None, right=None):
-        self.val = val
-        self.left = left
-        self.right = right
-
-    def __repr__(self):
-        return 'TreeNode({})'.format(self.val)
-
-
-def deserialize(string):
-    if string == '{}':
-        return None
-    nodes = [None if val == 'null' else TreeNode(int(val))
-             for val in string.strip('[]{}').split(',')]
-    return nodes
-
-
-deserialize('[1,2,3,null,null,4,null,null,5]')
-deserialize(
-    '[2,1,3,0,7,9,1,2,null,1,0,null,null,8,8,null,null,null,null,7]')
-
-```
-
-### 순회
-
-```python
-class Node:
-    def __init__(self, val, left=None, right=None):
-        self.val = val
-        self.left = left
-        self.right = right
-
-
-root = Node("F",
-            Node("B",
-                 Node("A"),
-                 Node("D",
-                      Node("C"),
-                      Node("E"))
-                 ),
-            Node("G",
-                 None,
-                 Node("I", Node("H")))
-            )
-
-# 전위순회
-def preorder(node):
-    if node is None:
-        return
-    print(node.val, end=" ")
-    preorder(node.left)
-    preorder(node.right)
-
-# 중위순회
-def inorder(node):
-    if node is None:
-        return
-    inorder(node.left)
-    print(node.val, end=" ")
-    inorder(node.right)
-
-# 후위순횐
-def postorder(node):
-    if node is None:
-        return
-    postorder(node.left)
-    postorder(node.right)
-    print(node.val, end=" ")
-
-
-preorder(root)
-inorder(root)
-postorder(root)
-
-```
-
-### LCA
-
-```python
-from collections import deque
-
-def LCA(u, v):
-    if depth[u] < depth[v]:
-        temp = u
-        u = v
-        v = temp
-    while depth[u] != depth[v]:
-        u = parent[u]
-    while u != v:
-        u = parent[u]
-        v = parent[v]
-    return u
-
-
-N = int(input())
-tree = [[] for _ in range(N+1)]
-for _ in range(N-1):
-    u, v = map(int, input().split())
-    tree[u].append(v)
-    tree[v].append(u)
-depth = [0] * (N+1)
-check = [False] * (N+1)
-parent = [0] * (N+1)
-check[1] = True
-depth[1] = 0
-Q = deque([1])
-
-while Q:
-    u = Q.popleft()
-    for v in tree[u]:
-        if not check[v]:
-            depth[v] = depth[u] + 1
-            check[v] = True
-            parent[v] = u
-            Q.append(v)
-
-M = int(input())
-while M:
-    u, v = map(int, input().split())
-    print(LCA(u, v))
-    M -= 1
-```
-
-### 세그먼트 트리
-
-```python
-from math import log, ceil
-
-
-def init(tree, board, node, start, end):
-    if start == end:
-        tree[node] = board[start]
-    else:
-        init(tree, board, node*2, start, (start+end)//2)
-        init(tree, board, node*2+1, (start+end)//2+1, end)
-        tree[node] = min(tree[node * 2], tree[node * 2 + 1])
-
-
-def query(tree, node, start, end, i, j):
-    if i > end or j < start:
-        return -1
-    if i <= start and end <= j:
-        return tree[node]
-    m1 = query(tree, 2*node, start, (start+end)//2, i, j)
-    m2 = query(tree, 2*node+1, (start+end)//2+1, end, i, j)
-    if m1 == -1:
-        return m2
-    elif m2 == -1:
-        return m1
-    else:
-        return min(m1, m2)
-
-N, M = map(int, input().split())
-H = ceil(log(N, 2))
-size = (1 << (H+1))
-board = [int(input()) for _ in range(N)]
-tree = [0] * size
-
-init(tree, board, 1, 0, N-1)
-for _ in range(M):
-    start, end = map(int, input().split())
-    print(query(tree, 1, 0, N-1, start-1, end-1))
-```
-
-
-
-
-
-
-
-# 7. 나머지 정리
-
-1) (A+B)%C =((A%C) + (B%C))%C
-
-2) (A*B)%C =((A%C) *(B%C))%C
