@@ -5,6 +5,8 @@ N, K = list(map(int, input().split()))
 board = [int(input()) for _ in range(N)]
 count = 0
 for i in range(N):
+    if K == 0:
+        break
     count += K // board[-1-i]
     K = K % board[-1-i]
 print(count)
