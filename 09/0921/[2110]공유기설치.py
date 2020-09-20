@@ -6,7 +6,7 @@ N, C = map(int, input().split())
 routers = [int(input()) for _ in range(N)]
 routers.sort()
 
-start, end = routers[1] - routers[0], routers[-1] - routers[0]
+start, end = routers[1]-routers[0], routers[-1]-routers[0]
 result = 0
 while start <= end:
     mid = (start + end) // 2
