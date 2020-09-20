@@ -2,6 +2,8 @@ import sys
 sys.stdin = open('2529.txt', 'r')
 
 result = []
+
+
 N = int(input())
 blank = list(map(str, input().split()))
 result = []

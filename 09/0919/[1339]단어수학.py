@@ -1,5 +1,7 @@
 import sys
 from collections import defaultdict
+from math import log10
+
 sys.stdin = open('1339.txt', 'r')
 
 digit = defaultdict(int)
