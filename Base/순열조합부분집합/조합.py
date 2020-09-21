@@ -16,6 +16,6 @@ def COMB(arr, r):
     return result
 
 
-result = COMB('ABCDE', 2)
+result = COMB('ABCDE', 3)
 pprint(result)
 pprint(str(len(result)) + "개")

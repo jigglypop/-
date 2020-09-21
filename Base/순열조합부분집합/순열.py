@@ -22,6 +22,6 @@ def PERM(arr, r):
     return result
 
 
-result = PERM('ABC', 2)
+result = PERM('ABCDE', 3)
 pprint(result)
 pprint(str(len(result)) + "개")
