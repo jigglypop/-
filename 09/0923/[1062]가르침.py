@@ -1,19 +1,18 @@
-from heapq import*
 import sys
-sys.stdin = open('1062.txt', 'r')
+sys.stdin = open('1062.txt')
 input = sys.stdin.readline
+
 N, K = map(int, input().split())
 K -= 5
-
-bit = {}
+check = {}
 for i in range(26):
-    bit[chr(ord('a') + i)] = 1 << i
+    check[chr(ord('a')+i)] = 1 << i
 
 
 def word_to_bit(word):
     result = 0
-    for char in word:
-        result |= bit[char]
+    for w in word:
+        result |= check[w]
     return result
 
 
@@ -44,7 +43,7 @@ def teach(lst, mask, k):
     else:
         result = 0
         for i in range(len(lst) - k + 1):
-            result = max(result, teach(lst[i+1:], mask ^ bit[lst[i]], k - 1))
+            result = max(result, teach(lst[i+1:], mask ^ check[lst[i]], k - 1))
         return result
 
 
