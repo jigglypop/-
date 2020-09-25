@@ -1,10 +1,4 @@
-
-
 # 1. 파이썬 기본
-
----
-
-
 
 ### 배열조작
 
@@ -433,12 +427,6 @@ for y in range(1, N+1):
 
 ```
 
-
-
-
-
-
-
 # 4. DP
 
 ---
@@ -711,8 +699,6 @@ class Node:
         self.val = val
         self.left = left
         self.right = right
-
-
 root = Node("F",
             Node("B",
                  Node("A"),
@@ -724,7 +710,6 @@ root = Node("F",
                  None,
                  Node("I", Node("H")))
             )
-
 # 전위순회
 def preorder(node):
     if node is None:
@@ -732,7 +717,6 @@ def preorder(node):
     print(node.val, end=" ")
     preorder(node.left)
     preorder(node.right)
-
 # 중위순회
 def inorder(node):
     if node is None:
@@ -740,27 +724,22 @@ def inorder(node):
     inorder(node.left)
     print(node.val, end=" ")
     inorder(node.right)
-
-# 후위순횐
+# 후위순회
 def postorder(node):
     if node is None:
         return
     postorder(node.left)
     postorder(node.right)
     print(node.val, end=" ")
-
-
 preorder(root)
 inorder(root)
 postorder(root)
-
 ```
 
 ### LCA
 
 ```python
 from collections import deque
-
 def LCA(u, v):
     if depth[u] < depth[v]:
         temp = u
@@ -772,8 +751,6 @@ def LCA(u, v):
         u = parent[u]
         v = parent[v]
     return u
-
-
 N = int(input())
 tree = [[] for _ in range(N+1)]
 for _ in range(N-1):
@@ -786,7 +763,6 @@ parent = [0] * (N+1)
 check[1] = True
 depth[1] = 0
 Q = deque([1])
-
 while Q:
     u = Q.popleft()
     for v in tree[u]:
@@ -795,7 +771,6 @@ while Q:
             check[v] = True
             parent[v] = u
             Q.append(v)
-
 M = int(input())
 while M:
     u, v = map(int, input().split())
@@ -803,45 +778,84 @@ while M:
     M -= 1
 ```
 
-### 세그먼트 트리
+
+
+
+
+# 7. 세그먼트 트리/펜윅 트리
+
+### 세그먼트 트리 구성(최소)
 
 ```python
-from math import log, ceil
-
-
-def init(tree, board, node, start, end):
-    if start == end:
-        tree[node] = board[start]
-    else:
-        init(tree, board, node*2, start, (start+end)//2)
-        init(tree, board, node*2+1, (start+end)//2+1, end)
-        tree[node] = min(tree[node * 2], tree[node * 2 + 1])
-
-
-def query(tree, node, start, end, i, j):
-    if i > end or j < start:
-        return -1
-    if i <= start and end <= j:
-        return tree[node]
-    m1 = query(tree, 2*node, start, (start+end)//2, i, j)
-    m2 = query(tree, 2*node+1, (start+end)//2+1, end, i, j)
-    if m1 == -1:
-        return m2
-    elif m2 == -1:
-        return m1
-    else:
-        return min(m1, m2)
+from math import ceil, log2
 
 N, M = map(int, input().split())
-H = ceil(log(N, 2))
-size = (1 << (H+1))
+size = (1 << (ceil(log2(N))+1))
 board = [int(input()) for _ in range(N)]
 tree = [0] * size
 
-init(tree, board, 1, 0, N-1)
+def init(node, start, end):
+    if start == end:
+        tree[node] = board[start]
+    else:
+        init(2 * node, start, (start + end) // 2)
+        init(2 * node + 1, (start + end) // 2 + 1, end)
+        tree[node] = min(tree[node * 2], tree[node * 2 + 1])
+init(1, 0, N-1)
+print(tree)
+```
+
+### 세그먼트 트리 쿼리(최소)
+
+```python
+def query(node, start, end, s, e):
+    if s > end or e < start:
+        return -1
+    if s <= start and end <= e:
+        return tree[node]
+    mid = (start + end) // 2
+    left = query(2 * node, start, mid, s, e)
+    right = query(2 * node + 1, mid + 1, end, s, e)
+    if left == -1:
+        return right
+    elif right == -1:
+        return left
+    else:
+        return min(left, right)
+
+
 for _ in range(M):
     start, end = map(int, input().split())
-    print(query(tree, 1, 0, N-1, start-1, end-1))
+    print(query(1, 0, N-1, start-1, end-1))
+```
+
+### 펜윅트리
+
+```python
+def update(tree, i, plus):
+    while i < len(tree):
+        tree[i] += plus
+        i += (i & -i)
+        print(bin(i & -i))
+def sum(tree, i):
+    s = 0
+    while i > 0:
+        s += tree[i]
+        i -= (i & -i)
+    return s
+n, m, k = map(int, input().split())
+tree = [0]*(n+1)
+board = [0]
+for i in range(1, n+1):
+    board.append(int(input()))
+    update(tree, i, board[i])
+for i in range(0, m+k):
+    q, a, b = map(int, input().split())
+    if q == 1:
+        update(tree, a, b-board[a])
+        board[a] = b
+    if q == 2:
+        print(sum(tree, b) - sum(tree, a-1))
 ```
 
 
@@ -850,8 +864,60 @@ for _ in range(M):
 
 
 
-# 7. 나머지 정리
+# 8. 수학
 
 1) (A+B)%C =((A%C) + (B%C))%C
 
 2) (A*B)%C =((A%C) *(B%C))%C
+
+
+
+# 9. 이분탐색
+
+### lower_bound
+
+```python
+# 1 2 3 4 4 4 5 6 7 8
+N, M = map(int, input().split())
+nums = list(map(int, input().split()))
+start, end = 0, N-1
+result = 0
+while start < end:
+    mid = (start + end) // 2
+    temp = nums[mid]
+    if temp >= M:
+        end = mid
+    else:
+        start = mid + 1
+print(end)
+```
+
+### upper_bound
+
+```python
+# 1 2 3 4 4 4 5 6 7 8
+N, M = map(int, input().split())
+nums = list(map(int, input().split()))
+start, end = 0, N-1
+while start <= end:
+    mid = (start + end) // 2
+    temp = nums[mid]
+    if temp <= M:
+        start = mid + 1
+    else:
+        end = mid - 1
+print(start)
+# 6
+```
+
+### 모듈
+
+```python
+from bisect import bisect_left, bisect_right
+# 1 2 3 4 4 4 5 6 7 8
+N, M = map(int, input().split())
+nums = list(map(int, input().split()))
+print(bisect_left(nums, 4))
+print(bisect_right(nums, 4))
+```
+
