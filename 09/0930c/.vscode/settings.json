@@ -11,6 +11,11 @@
     "iostream": "cpp",
     "ostream": "cpp",
     "random": "cpp",
-    "algorithm": "cpp"
+    "algorithm": "cpp",
+    "array": "cpp",
+    "initializer_list": "cpp",
+    "utility": "cpp",
+    "tuple": "cpp",
+    "functional": "cpp"
   }
 }
