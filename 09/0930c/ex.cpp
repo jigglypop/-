@@ -1,31 +1,33 @@
 #include <iostream>
+#include <vector>
+#include <string>
 using namespace std;
-long long mul(long long a, long long b, long long c)
+
+struct Trie
 {
-    if (b == 0)
+    struct Node
     {
-        return 1LL;
-    }
-    else if (b == 1)
-    {
-        return a % c;
-    }
-    else if (b % 2 == 0)
-    {
-        long long temp = mul(a, b / 2, c) % c;
-        return (temp * temp) % c;
-    }
-    else
-    {
-        return (a * mul(a, b / 2, c)) % c;
-    }
-}
+        int children[26];
+        bool valid;
+        Node()
+        {
+            for (int i = 0; i < 26; i++)
+            {
+                children[i] = -1;
+            }
+            valid = false;
+        }
+    };
+    vector<Node> trie;
+};
 
 int main()
 {
-    freopen("1629.txt", "r", stdin);
-    long long a, b, c;
-    cin >> a >> b >> c;
-    cout << mul(a, b, c) << "\n";
+    freopen("14425.txt", "r", stdin);
+    ios_base::sync_with_stdio(false);
+    cin.tie(NULL);
+    int n, m;
+    cin >> n >> m;
+    Trie trie;
     return 0;
 }
