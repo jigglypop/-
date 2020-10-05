@@ -1,9 +1,5 @@
 import sys
-from pprint import pprint
-sys.stdin = open('trie/전화번호.txt', 'r')
-
-
-r = sys.stdin.readline
+sys.stdin = open('trie.txt', 'r')
 
 
 class Node:
@@ -40,13 +36,13 @@ class Trie:
         return False
 
 
-loop = int(r())
+loop = int(input())
 for _ in range(loop):
-    m = int(r())
+    m = int(input())
     trie = Trie()
     check = False
     for _ in range(m):
-        target_number = r().replace('\n', '')
+        target_number = input()
         if check:
             continue
         check = trie.insert_and_check(target_number)

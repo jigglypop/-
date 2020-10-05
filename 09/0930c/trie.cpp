@@ -28,6 +28,10 @@ struct Trie
     {
         root = init();
     }
+    void add(string &s)
+    {
+        add(root, s, 0);
+    }
 
     void add(int node, string &s, int index)
     {
@@ -46,9 +50,9 @@ struct Trie
         add(child, s, index + 1);
     }
 
-    void add(string &s)
+    bool search(string &s)
     {
-        add(root, s, 0);
+        return search(root, s, 0);
     }
 
     bool search(int node, string &s, int index)
@@ -60,11 +64,6 @@ struct Trie
         int c = s[index] - 'a';
         int child = trie[node].children[c];
         return search(child, s, index + 1);
-    }
-
-    bool search(string &s)
-    {
-        return search(root, s, 0);
     }
 };
 

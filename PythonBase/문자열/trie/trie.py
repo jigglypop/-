@@ -3,8 +3,8 @@ from collections import defaultdict
 
 class TrieNode:
     def __init__(self):
-        self.word = False
         self.children = defaultdict(TrieNode)
+        self.word = False
 
     def __repr__(self):
         return f'TrieNode({self.word}:{self.children.items()})'
@@ -14,14 +14,13 @@ class Trie:
     def __init__(self):
         self.root = TrieNode()
 
-    def insert(self, word):
+    def add(self, word):
         node = self.root
         for char in word:
             node = node.children[char]
         node.word = True
 
     # 단어 존재 여부 판별
-
     def search(self, word):
         node = self.root
         for char in word:
@@ -42,7 +41,7 @@ class Trie:
 
 
 trie = Trie()
-trie.insert('apple')
-trie.insert('appeal')
+trie.add('apple')
+trie.add('appeal')
 print(trie.search('apple'))
 print(trie.startsWith('a'))
