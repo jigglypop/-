@@ -2,24 +2,18 @@ import java.io.FileInputStream;
 import java.util.Scanner;
 
 public class a {
-    static long go(long a, long b, long c) {
-        long ans = 1;
-        while (b > 0) {
-            if ((b & 1) == 1) {
-                ans = (ans * a) % c;
-            }
-            a = (a * a) % c;
-            b = b / 2;
-        }
-        return ans;
-    }
 
     public static void main(String[] args) throws Exception {
-        System.setIn(new FileInputStream("./input.txt"));
-        Scanner sc = new Scanner(System.in);
-        long a = sc.nextLong();
-        long b = sc.nextLong();
-        long c = sc.nextLong();
-        System.out.println(go(a, b, c));
+        int i = 0;
+        int sum = 0;
+        while (i < 10) {
+            i++;
+            if (i % 2 == 1) {
+                continue;
+            }
+            sum += i;
+        }
+        System.out.print(sum);
+
     }
 }

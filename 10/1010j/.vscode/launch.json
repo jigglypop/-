@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "CodeLens (Launch) - a",
+            "request": "launch",
+            "mainClass": "a",
+            "projectName": "1010j_2048218e"
+        },
+        {
+            "type": "java",
             "name": "CodeLens (Launch) - hashmap",
             "request": "launch",
             "mainClass": "hashmap",
