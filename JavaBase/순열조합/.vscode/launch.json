@@ -6,6 +6,20 @@
     "configurations": [
         {
             "type": "java",
+            "name": "CodeLens (Launch) - Permutation",
+            "request": "launch",
+            "mainClass": "Permutation",
+            "projectName": "순열조합_88761b"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - BfsMain",
+            "request": "launch",
+            "mainClass": "BfsMain",
+            "projectName": "순열조합_88761b"
+        },
+        {
+            "type": "java",
             "name": "CodeLens (Launch) - BfsGraph",
             "request": "launch",
             "mainClass": "BfsGraph",

@@ -9,6 +9,41 @@
             "name": "CodeLens (Launch) - Main",
             "request": "launch",
             "mainClass": "Main",
+            "projectName": "diameter_704a0c0e"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - Mains",
+            "request": "launch",
+            "mainClass": "Mains",
+            "projectName": "parent_27e56c6b"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - Main",
+            "request": "launch",
+            "mainClass": "Main",
+            "projectName": "parent_27e56c6b"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - depthWidth",
+            "request": "launch",
+            "mainClass": "depthWidth",
+            "projectName": "1021j_2048256e"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - travel",
+            "request": "launch",
+            "mainClass": "travel",
+            "projectName": "1021j_2048256e"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - Main",
+            "request": "launch",
+            "mainClass": "Main",
             "projectName": "1020j_2048254f"
         },
         {

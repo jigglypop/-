@@ -23,7 +23,7 @@ public class BfsMain {
     }
 
     public static void main(String[] args) throws Exception {
-        System.setIn(new FileInputStream("./input.txt"));
+        System.setIn(new FileInputStream("./inputA.txt"));
         Scanner sc = new Scanner(System.in);
         int N = sc.nextInt();
         int M = sc.nextInt();

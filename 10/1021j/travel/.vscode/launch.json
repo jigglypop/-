@@ -6,6 +6,20 @@
     "configurations": [
         {
             "type": "java",
+            "name": "CodeLens (Launch) - depthWidth",
+            "request": "launch",
+            "mainClass": "depthWidth",
+            "projectName": "1021j_2048256e"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - travel",
+            "request": "launch",
+            "mainClass": "travel",
+            "projectName": "1021j_2048256e"
+        },
+        {
+            "type": "java",
             "name": "CodeLens (Launch) - Main",
             "request": "launch",
             "mainClass": "Main",
