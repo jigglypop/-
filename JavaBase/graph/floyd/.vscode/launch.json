@@ -6,24 +6,31 @@
     "configurations": [
         {
             "type": "java",
-            "name": "CodeLens (Launch) - Permutation",
+            "name": "CodeLens (Launch) - Main",
             "request": "launch",
-            "mainClass": "Permutation",
-            "projectName": "순열조합_88761b"
+            "mainClass": "Main",
+            "projectName": "floyd_7dbbb829"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - Main",
+            "request": "launch",
+            "mainClass": "Main",
+            "projectName": "dijkstra_9edcf6a0"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - DfsGraph",
+            "request": "launch",
+            "mainClass": "DfsGraph",
+            "projectName": "dfs_d989927"
         },
         {
             "type": "java",
             "name": "CodeLens (Launch) - BfsMain",
             "request": "launch",
             "mainClass": "BfsMain",
-            "projectName": "순열조합_88761b"
-        },
-        {
-            "type": "java",
-            "name": "CodeLens (Launch) - BfsGraph",
-            "request": "launch",
-            "mainClass": "BfsGraph",
-            "projectName": "bfs_d9891a5"
+            "projectName": "dfs_d989927"
         },
         {
             "type": "java",
