@@ -1,5 +1,4 @@
 import java.util.*;
-import java.util.stream.IntStream;
 
 public class Main {
 
@@ -16,8 +15,6 @@ public class Main {
             System.out.printf("%s ", i);
         }
         System.out.println();
-        System.out.println(words.contains("a"));
-        System.out.println(words.get(1));
 
         // 2. size
         System.out.println(words.size());
@@ -35,26 +32,6 @@ public class Main {
             System.out.printf("%s ", i);
         }
         System.out.println();
-
-        // 4. forEach
-        List<String> list = new ArrayList<>();
-        list.add("1");
-        list.add("2");
-        list.add("3");
-        System.out.println(list);
-        list.forEach((a) -> {
-            System.out.print(a + " ");
-        });
-        System.out.println(list);
-        // 5. String -> int
-        list.forEach((a) -> {
-            Integer.parseInt(a);
-        });
-
-        // 6. sum
-        List<Integer> list2 = Arrays.asList(6, 7, 8, 9, 10);
-        int list2Stream = IntStream.of(12, 3).sum();
-        System.out.println(list2Stream);
 
     }
 }

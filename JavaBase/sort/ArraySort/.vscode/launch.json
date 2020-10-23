@@ -9,28 +9,14 @@
             "name": "CodeLens (Launch) - Main",
             "request": "launch",
             "mainClass": "Main",
-            "projectName": "dijkstra_4061eec1"
+            "projectName": "sort_eda27e5"
         },
         {
             "type": "java",
-            "name": "CodeLens (Launch) - Main",
+            "name": "CodeLens (Launch) - BfsGraph",
             "request": "launch",
-            "mainClass": "Main",
-            "projectName": "dijkstra_9edcf6a0"
-        },
-        {
-            "type": "java",
-            "name": "CodeLens (Launch) - DfsGraph",
-            "request": "launch",
-            "mainClass": "DfsGraph",
-            "projectName": "dfs_d989927"
-        },
-        {
-            "type": "java",
-            "name": "CodeLens (Launch) - BfsMain",
-            "request": "launch",
-            "mainClass": "BfsMain",
-            "projectName": "dfs_d989927"
+            "mainClass": "BfsGraph",
+            "projectName": "bfs_d9891a5"
         },
         {
             "type": "java",

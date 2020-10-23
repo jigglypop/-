@@ -12,22 +12,28 @@ class Pair {
 }
 
 public class BfsGraph {
-    public static final int[] dy = { 1, -1, 0, 0, 1, -1, 1, -1 };
-    public static final int[] dx = { 0, 0, 1, -1, 1, 1, -1, -1 };
 
-    public static void bfs(int[][] board, int[][] visited, int y, int x, int cnt, int n, int m) {
+    static int[][] matrix;
+
+    public static void bfs(int sy, int sx, int Y, int X, int cnt) {
+        int[] dy = { 1, -1, 0, 0 };
+        int[] dx = { 0, 0, 1, -1 };
+
+        int[][] visited = new int[Y][X];
+
         Queue<Pair> Q = new LinkedList<Pair>();
-        Q.add(new Pair(y, x));
-        visited[y][x] = cnt;
+        Q.add(new Pair(sy, sx));
+        visited[sy][sx] = cnt;
+
         while (!Q.isEmpty()) {
             Pair p = Q.remove();
-            y = p.y;
-            x = p.x;
+            int y = p.y;
+            int x = p.x;
             for (int i = 0; i < 8; i++) {
                 int ny = y + dy[i];
                 int nx = x + dx[i];
-                if (0 <= nx && nx < m && 0 <= ny && ny < n) {
-                    if (board[ny][nx] == 1 && visited[ny][nx] == 0) {
+                if (0 <= nx && nx < X && 0 <= ny && ny < Y) {
+                    if (matrix[ny][nx] == 1 && visited[ny][nx] == 0) {
                         Q.add(new Pair(ny, nx));
                         visited[ny][nx] = cnt;
                     }
@@ -46,18 +52,18 @@ public class BfsGraph {
             if (Y == 0 && X == 0) {
                 break;
             }
-            int[][] board = new int[Y][X];
+            int[][] matrix = new int[Y][X];
             for (int y = 0; y < Y; y++) {
                 for (int x = 0; x < X; x++) {
-                    board[y][x] = sc.nextInt();
+                    matrix[y][x] = sc.nextInt();
                 }
             }
             int cnt = 0;
             int[][] visited = new int[Y][X];
             for (int y = 0; y < Y; y++) {
                 for (int x = 0; x < X; x++) {
-                    if (board[y][x] == 1 && visited[y][x] == 0) {
-                        bfs(board, visited, y, x, ++cnt, Y, X);
+                    if (matrix[y][x] == 1 && visited[y][x] == 0) {
+                        bfs(y, x, Y, X, ++cnt);
                     }
                 }
             }

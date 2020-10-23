@@ -1,0 +1,104 @@
+{
+    // IntelliSense를 사용하여 가능한 특성에 대해 알아보세요.
+    // 기존 특성에 대한 설명을 보려면 가리킵니다.
+    // 자세한 내용을 보려면 https://go.microsoft.com/fwlink/?linkid=830387을(를) 방문하세요.
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - Mains",
+            "request": "launch",
+            "mainClass": "Mains",
+            "projectName": "parent_27e56c6b"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - Main",
+            "request": "launch",
+            "mainClass": "Main",
+            "projectName": "parent_27e56c6b"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - depthWidth",
+            "request": "launch",
+            "mainClass": "depthWidth",
+            "projectName": "1021j_2048256e"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - travel",
+            "request": "launch",
+            "mainClass": "travel",
+            "projectName": "1021j_2048256e"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - Main",
+            "request": "launch",
+            "mainClass": "Main",
+            "projectName": "1020j_2048254f"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - Main",
+            "request": "launch",
+            "mainClass": "a.Main"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - b",
+            "request": "launch",
+            "mainClass": "b",
+            "projectName": "1019j_204822a5"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - a",
+            "request": "launch",
+            "mainClass": "a",
+            "projectName": "1019j_204822a5"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - a",
+            "request": "launch",
+            "mainClass": "a",
+            "projectName": "1010j_2048218e"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - hashmap",
+            "request": "launch",
+            "mainClass": "hashmap",
+            "projectName": "1010j_2048218e"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - a",
+            "request": "launch",
+            "mainClass": "a",
+            "projectName": "0929j_94750ea6"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - hello",
+            "request": "launch",
+            "mainClass": "hello",
+            "projectName": "0929j_94750ea6"
+        },
+        {
+            "type": "java",
+            "name": "Debug (Launch) - Current File",
+            "request": "launch",
+            "mainClass": "${file}"
+        },
+        {
+            "type": "java",
+            "name": "Debug (Launch)-Main<0929j_94750ea6>",
+            "request": "launch",
+            "mainClass": "Main",
+            "projectName": "0929j_94750ea6"
+        }
+    ]
+}

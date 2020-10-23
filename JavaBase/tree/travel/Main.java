@@ -36,7 +36,7 @@ public class Main {
     }
 
     public static void main(String args[]) throws Exception {
-        System.setIn(new FileInputStream("./travel.txt"));
+        System.setIn(new FileInputStream("./input.txt"));
         Scanner sc = new Scanner(System.in);
         int N = sc.nextInt();
         Node[] words = new Node[26];

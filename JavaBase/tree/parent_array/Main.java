@@ -1,16 +1,6 @@
 import java.io.FileInputStream;
 import java.util.*;
 
-class Node {
-    int left;
-    int right;
-
-    Node(int left, int right) {
-        this.left = left;
-        this.right = right;
-    }
-}
-
 public class Main {
 
     public static void main(String args[]) throws Exception {

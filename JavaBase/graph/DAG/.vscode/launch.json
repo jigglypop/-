@@ -9,7 +9,14 @@
             "name": "CodeLens (Launch) - Main",
             "request": "launch",
             "mainClass": "Main",
-            "projectName": "dijkstra_4061eec1"
+            "projectName": "DAG_cc2ed39f"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - Main",
+            "request": "launch",
+            "mainClass": "Main",
+            "projectName": "floyd_7dbbb829"
         },
         {
             "type": "java",
