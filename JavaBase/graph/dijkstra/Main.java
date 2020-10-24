@@ -16,11 +16,32 @@ class Edge implements Comparable<Edge> {
 }
 
 public class Main {
-    static final int INF = Integer.MAX_VALUE;
     static StringTokenizer stk;
 
-    public static int[] dijkstra(List<Edge>[] graph) {
-        // int[] dist
+    public static int[] dijkstra(List<Edge>[] graph, int start, int N) {
+        int[] dist = new int[N + 1];
+        Arrays.fill(dist, Integer.MAX_VALUE);
+
+        PriorityQueue<Edge> PQ = new PriorityQueue<>();
+        PQ.add(new Edge(start, 0));
+        dist[start] = 0;
+
+        while (!PQ.isEmpty()) {
+            Edge x = PQ.remove();
+            int u = x.to;
+            int w = x.cost;
+            if (dist[u] >= w) {
+                for (Edge y : graph[u]) {
+                    int v = y.to;
+                    int dw = y.cost;
+                    if (dist[v] > dist[u] + dw) {
+                        dist[v] = dist[u] + dw;
+                        PQ.add(new Edge(v, dist[v]));
+                    }
+                }
+            }
+        }
+        return dist;
     }
 
     public static void main(String args[]) throws Exception {
@@ -41,29 +62,10 @@ public class Main {
             int c = Integer.parseInt(stk.nextToken());
             graph[a].add(new Edge(b, c));
         }
-        int[] dist = new int[n + 1];
-        Arrays.fill(dist, Integer.MAX_VALUE);
-        dist[start] = 0;
-        PriorityQueue<Edge> pq = new PriorityQueue<>();
-        pq.add(new Edge(start, 0));
-        while (!pq.isEmpty()) {
-            Edge x = pq.remove();
-            int u = x.to;
-            int w = x.cost;
-            if (dist[u] < w)
-                continue;
-            for (Edge y : graph[u]) {
-                int v = y.to;
-                int dw = y.cost;
-                if (dist[v] > dist[u] + dw) {
-                    dist[v] = dist[u] + dw;
-                    pq.add(new Edge(v, dist[v]));
-                }
-            }
-        }
+        int[] dist = dijkstra(graph, start, n);
         StringBuilder sb = new StringBuilder();
         for (int i = 1; i <= n; i++) {
-            if (dist[i] == INF) {
+            if (dist[i] == Integer.MAX_VALUE) {
                 sb.append("INF\n");
             } else {
                 sb.append(dist[i]).append("\n");

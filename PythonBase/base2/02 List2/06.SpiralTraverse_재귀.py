@@ -3,10 +3,13 @@ ROW, COL = 5, 5
 arr = [[0 for _ in range(COL)] for _ in range(ROW)]
 visit = [[False for _ in range(COL)] for _ in range(ROW)]
 
+
 def spiralTraverse(dir, x, y, cnt):
 
-    if x < 0 or y < 0 or x == ROW or y == COL: return
-    if visit[x][y]: return
+    if x < 0 or y < 0 or x == ROW or y == COL:
+        return
+    if visit[x][y]:
+        return
 
     visit[x][y] = True
     arr[x][y] = cnt
