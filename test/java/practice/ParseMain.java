@@ -21,79 +21,34 @@ import java.io.*;
 // class Pair {
 //     int y;
 //     int x;
-//
+
 //     Pair(int y, int x) {
 //         this.y = y;
 //         this.x = x;
 //     }
 // }
 //
-//
-// 3. Node
-//
-// class Node {
-//     int left, right;
-//
-//     Node(int left, int right) {
-//         this.left = left;
-//         this.right = right;
-//     }
+
 // }
-//
-// 4. kruskal
-//
-// class Edge implements Comparable<Edge> {
-//     int from;
-//     int to;
-//     int cost;
-//     Edge(int from, int to, int cost) {
-//         this.from = from;
-//         this.to = to;
-//         this.cost = cost;
-//     }
-//     @Override
-//     public int compareTo(Edge that) {
-//         return Integer.compare(this.cost, that.cost);
-//     }
-// }
-// static int[] parent;
-// public static int find(int x) {
-//     if (parent[x] == x) {
-//         return x;
-//     }
-//     return parent[x] = find(parent[x]);
-// }
-// public static boolean union(int a, int b) {
-//     int x = find(a);
-//     int y = find(b);
-//     if (x != y) {
-//         parent[y] = x;
-//         return true;
-//     }
-//     return false;
-// }
-// public static long kruskal(PriorityQueue<Edge> pq, int V) {
-//     parent = new int[V + 1];
-//     for (int i = 1; i <= V; i++) {
-//         parent[i] = i;
-//     }
-//     long result = 0;
-//     while (V > 1) {
-//         Edge p = pq.remove();
-//         if (union(p.from, p.to)) {
-//             result += p.cost;
-//             V--;
-//         }
+
+// 3. regex
+
+// public static ArrayList<String> Regex(String p, String text) {
+//     Pattern pattern = Pattern.compile(p);
+//     Matcher matcher = pattern.matcher(text);
+//     ArrayList<String> result = new ArrayList<>();
+//     while (matcher.find()) {
+//         result.add(matcher.group(0));
 //     }
 //     return result;
 // }
 
-class Main {
+class ParseMain {
 
     private static void solution(int sizeOfMatrix, int[][] matrix) {
         // TODO: 이곳에 코드를 작성하세요.
         // System.out.println(sizeOfMatrix);
-
+        System.out.println("ParseMain");
     }
 
     private static class InputData {

@@ -2,8 +2,6 @@
 // import java.util.*;
 // import java.io.*;
 // System.setIn(new FileInputStream("./input.txt"));
-import java.util.*;
-import java.io.*;
 
 // 1. print
 //
@@ -88,7 +86,49 @@ import java.io.*;
 //     return result;
 // }
 
-class Main {
+// 5. lca
+// static int[] parent;
+// static int[] depth;
+
+// public static int lca(int u, int v) {
+//     if (depth[u] < depth[v]) {
+//         int temp = u;
+//         u = v;
+//         v = temp;
+//     }
+//     while (depth[u] != depth[v]) {
+//         u = parent[u];
+//     }
+//     while (u != v) {
+//         u = parent[u];
+//         v = parent[v];
+//     }
+//     return u;
+// }
+// parent = new int[N + 1];
+// depth = new int[N + 1];
+// depth[1] = 0;
+// parent[1] = 1;
+// Queue<Integer> Q = new LinkedList<Integer>();
+// boolean[] check = new boolean[N + 1];
+// check[1] = true;
+// Q.add(1);
+// while (!Q.isEmpty()) {
+//     int u = Q.remove();
+//     for (int v : tree[u]) {
+//         if (!check[v]) {
+//             depth[v] = depth[u] + 1;
+//             check[v] = true;
+//             parent[v] = u;
+//             Q.add(v);
+//         }
+//     }
+// }
+
+import java.util.*;
+import java.io.*;
+
+class HighTreeMain {
 
     private static void solution(int sizeOfMatrix, int[][] matrix) {
         // TODO: 이곳에 코드를 작성하세요.

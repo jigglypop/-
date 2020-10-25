@@ -21,79 +21,50 @@ import java.io.*;
 // class Pair {
 //     int y;
 //     int x;
-//
+
 //     Pair(int y, int x) {
 //         this.y = y;
 //         this.x = x;
 //     }
 // }
 //
-//
-// 3. Node
-//
-// class Node {
-//     int left, right;
-//
-//     Node(int left, int right) {
-//         this.left = left;
-//         this.right = right;
-//     }
-// }
-//
-// 4. kruskal
-//
-// class Edge implements Comparable<Edge> {
-//     int from;
-//     int to;
-//     int cost;
-//     Edge(int from, int to, int cost) {
-//         this.from = from;
-//         this.to = to;
-//         this.cost = cost;
-//     }
-//     @Override
-//     public int compareTo(Edge that) {
-//         return Integer.compare(this.cost, that.cost);
-//     }
-// }
-// static int[] parent;
-// public static int find(int x) {
-//     if (parent[x] == x) {
-//         return x;
-//     }
-//     return parent[x] = find(parent[x]);
-// }
-// public static boolean union(int a, int b) {
-//     int x = find(a);
-//     int y = find(b);
-//     if (x != y) {
-//         parent[y] = x;
-//         return true;
-//     }
-//     return false;
-// }
-// public static long kruskal(PriorityQueue<Edge> pq, int V) {
-//     parent = new int[V + 1];
-//     for (int i = 1; i <= V; i++) {
-//         parent[i] = i;
-//     }
-//     long result = 0;
-//     while (V > 1) {
-//         Edge p = pq.remove();
-//         if (union(p.from, p.to)) {
-//             result += p.cost;
-//             V--;
+// 3. dfs
+// public static int dfs(int sy, int sx, int N, int[][] matrix) {
+//     int dy[] = { -1, 1, 0, 0 };
+//     int dx[] = { 0, 0, -1, 1 };
+
+//     Stack<Pair> S = new Stack<Pair>();
+//     boolean[][] visited = new boolean[N][N];
+//     S.push(new Pair(sy, sx));
+//     visited[sy][sx] = true;
+//     int count = 1;
+//     while (!S.isEmpty()) {
+//         Pair s = S.pop();
+//         int y = s.y;
+//         int x = s.x;
+//         for (int i = 0; i < 4; i++) {
+//             int ny = y + dy[i];
+//             int nx = x + dx[i];
+//             if (0 <= ny && ny < N && 0 <= nx && nx < N) {
+//                 if (!visited[ny][nx] && matrix[ny][nx] == 1) {
+//                     visited[ny][nx] = true;
+//                     matrix[ny][nx] = 0;
+//                     count += 1;
+//                     S.push(new Pair(ny, nx));
+//                 }
+//             }
 //         }
 //     }
-//     return result;
+//     return count;
 // }
+//
 
-class Main {
+class GraphMain {
 
     private static void solution(int sizeOfMatrix, int[][] matrix) {
         // TODO: 이곳에 코드를 작성하세요.
         // System.out.println(sizeOfMatrix);
-
+        System.out.println("GraphMain");
     }
 
     private static class InputData {

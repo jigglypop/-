@@ -6,80 +6,17 @@
     "configurations": [
         {
             "type": "java",
-            "name": "CodeLens (Launch) - MainB",
+            "name": "CodeLens (Launch) - Main",
             "request": "launch",
-            "mainClass": "MainB",
-            "projectName": "practice_2e585b1d"
+            "mainClass": "Main",
+            "projectName": "d_2ed4fc62"
         },
         {
             "type": "java",
             "name": "CodeLens (Launch) - Main",
             "request": "launch",
             "mainClass": "Main",
-            "projectName": "practice_2e585b1d"
-        },
-        {
-            "type": "java",
-            "name": "CodeLens (Launch) - Practice",
-            "request": "launch",
-            "mainClass": "Practice",
-            "projectName": "practice_2e585b1d"
-        },
-        {
-            "type": "java",
-            "name": "CodeLens (Launch) - MainC",
-            "request": "launch",
-            "mainClass": "MainC",
-            "projectName": "practice_2e585b1d"
-        },
-        {
-            "type": "java",
-            "name": "CodeLens (Launch) - TreeMain",
-            "request": "launch",
-            "mainClass": "TreeMain",
-            "projectName": "practice_2e585b1d"
-        },
-        {
-            "type": "java",
-            "name": "CodeLens (Launch) - CombPermMain",
-            "request": "launch",
-            "mainClass": "CombPermMain",
-            "projectName": "practice_2e585b1d"
-        },
-        {
-            "type": "java",
-            "name": "CodeLens (Launch) - GraphMain",
-            "request": "launch",
-            "mainClass": "GraphMain",
-            "projectName": "practice_2e585b1d"
-        },
-        {
-            "type": "java",
-            "name": "CodeLens (Launch) - Main",
-            "request": "launch",
-            "mainClass": "Main",
-            "projectName": "1_104f4344"
-        },
-        {
-            "type": "java",
-            "name": "CodeLens (Launch) - Main",
-            "request": "launch",
-            "mainClass": "Main",
-            "projectName": "3_104f4346"
-        },
-        {
-            "type": "java",
-            "name": "CodeLens (Launch) - Main",
-            "request": "launch",
-            "mainClass": "Main",
-            "projectName": "next_permutation_d6ded0ee"
-        },
-        {
-            "type": "java",
-            "name": "CodeLens (Launch) - Main",
-            "request": "launch",
-            "mainClass": "Main",
-            "projectName": "subset_c25b28e4"
+            "projectName": "c_2ed4fc61"
         },
         {
             "type": "java",
