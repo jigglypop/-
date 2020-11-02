@@ -22,9 +22,9 @@ init(1, 0, N-1)
 
 
 def query(node, start, end, s, e):
-    if s > end or e < start:
+    if end < s or start > e:
         return -1
-    if s <= start and end <= e:
+    if start >= s and end <= e:
         return tree[node]
     mid = (start + end) // 2
     left = query(2 * node, start, mid, s, e)
