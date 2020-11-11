@@ -5,7 +5,7 @@ int lower_bound(int *arr, int N, int target)
     int start = 0;
     int end = N;
     int mid;
-    while (end > start)
+    while (start < end)
     {
         mid = (start + end) / 2;
         if (arr[mid] < target)

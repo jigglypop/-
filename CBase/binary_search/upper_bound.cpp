@@ -3,9 +3,10 @@ using namespace std;
 int upper_bound(int *arr, int N, int target)
 {
     int start = 0;
-    int end = N;
+    int end = N - 1;
     int mid;
-    while (end > start)
+    int result = 0;
+    while (start < end)
     {
         mid = (start + end) / 2;
         if (arr[mid] <= target)
@@ -13,7 +14,7 @@ int upper_bound(int *arr, int N, int target)
         else
             end = mid;
     }
-    return end;
+    return start;
 }
 int main()
 {
