@@ -2,9 +2,9 @@ import sys
 sys.stdin = open('펜윅트리합.txt', 'r')
 
 
-def update(tree, i, plus):
+def update(tree, i, x):
     while i < len(tree):
-        tree[i] += plus
+        tree[i] += x
         i += (i & -i)
 
 
@@ -24,8 +24,6 @@ board = [0]
 for i in range(1, n+1):
     board.append(int(input()))
     update(tree, i, board[i])
-print(tree)
-print(board)
 for i in range(0, m+k):
     q, a, b = map(int, input().split())
     if q == 1:

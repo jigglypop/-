@@ -12,13 +12,12 @@ int main()
     scanf("%d %d", &N, &K);
     for (int n = 0; n <= N; n++)
     {
-        triangle[n][0] = 1;
+        triangle[n][0] = triangle[n][n] = 1;
         for (int k = 1; k <= n - 1; k++)
         {
             triangle[n][k] = triangle[n - 1][k] + triangle[n - 1][k - 1];
             triangle[n][k] %= mod;
         }
-        triangle[n][n] = 1;
     }
     printf("%d ", triangle[N][K]);
     return 0;

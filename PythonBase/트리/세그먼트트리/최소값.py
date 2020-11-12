@@ -5,7 +5,7 @@ sys.stdin = open('세그먼트트리.txt', 'r')
 input = sys.stdin.readline
 N, M = map(int, input().split())
 board = [int(input()) for _ in range(N)]
-tree = [0] * (4*N)
+tree = [0] * (4 * N)
 
 
 def init(x, start, end):
