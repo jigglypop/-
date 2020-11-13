@@ -1,26 +1,16 @@
 import sys
+from heapq import heappop, heappush
 sys.stdin = open("1922.txt", 'r')
-
-
-# 크루스칼 순서
-# 간선 cost 작은 순으로 정렬
-# union/find for문으로 뿌리가 같은지 검사
-
 
 V = int(input())
 E = int(input())
-# parent 만들기
 parent = [i for i in range(V+1)]
 
-# 비용순으로 정렬된 간선 만들기
-edges = []
+heap = []
 for _ in range(E):
     a, b, cost = map(int, input().split())
-    edges.append((cost, a, b))
-edges.sort()
+    heappush(heap, (cost, a, b))
 result = 0
-
-# 유니온 파인드
 
 
 def find(parent, x):
@@ -37,12 +27,9 @@ def union(parent, a, b):
     else:
         parent[a] = b
 
-# 크루스칼
 
-
-for edge in edges:
-    cost, a, b = edge
-    # 루트 노드가 같지 않으면 집합에 포함(사이클이 발생하지 않는 경우)
+while heap:
+    cost, a, b = heappop(heap)
     if find(parent, a) != find(parent, b):
         union(parent, a, b)
         result += cost
