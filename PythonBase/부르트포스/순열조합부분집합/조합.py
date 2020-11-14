@@ -1,6 +1,3 @@
-from pprint import pprint
-
-
 def COMB(arr, r):
     result = []
 
@@ -17,5 +14,5 @@ def COMB(arr, r):
 
 
 result = COMB('ABCDE', 3)
-pprint(result)
-pprint(str(len(result)) + "개")
+print(result)
+print(str(len(result)) + "개")

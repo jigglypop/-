@@ -1,9 +1,3 @@
-import sys
-sys.stdin = open('16916.txt', 'r')
-s = str(input())
-p = str(input())
-
-
 def preprocessing(p):
     m = len(p)
     pi = [0] * m
@@ -32,6 +26,7 @@ def kmp(s, p):
         if s[i] == p[j]:
             if j == m-1:
                 ans.append(i - m + 1)
+                j = pi[j]
             else:
                 j += 1
     return ans
@@ -39,4 +34,4 @@ def kmp(s, p):
 
 txt = 'ABXABABXAB'
 pat = 'ABXAB'
-print(kmp(pat, txt))
+print(kmp(txt, pat))
