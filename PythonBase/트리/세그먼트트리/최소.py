@@ -1,11 +1,9 @@
-# from math import ceil, log2
 import sys
 # 10868
 sys.stdin = open('10868.txt', 'r')
 
 input = sys.stdin.readline
 N, M = map(int, input().split())
-# size = (1 << (ceil(log2(N))+1))
 board = [int(input()) for _ in range(N)]
 tree = [0] * (4*N)
 
@@ -31,5 +29,5 @@ def query(x, s, e, S, E):
 init(1, 0, N-1)
 
 for _ in range(M):
-    start, end = map(int, input().split())
-    print(query(1, 0, N-1, start-1, end-1))
+    s, e = map(int, input().split())
+    print(query(1, 0, N-1, s-1, e-1))
