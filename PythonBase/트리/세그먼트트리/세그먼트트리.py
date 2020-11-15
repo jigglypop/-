@@ -20,7 +20,7 @@ def init(x, s, e):
 
 
 def query(x, s, e, S, E):
-    if e < S or s > E:
+    if S > e or s > E:
         return sys.maxsize
     if s >= S and e <= E:
         return tree[x]

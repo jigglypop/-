@@ -18,17 +18,18 @@ def init(x, s, e):
     tree[x] = init(2 * x, s, mid) + init(2 * x + 1, mid + 1, e)
     return tree[x]
 
-# lazy
+
+def propagate(x, s, e, diff):
+    tree[x] += (e - s + 1) * diff
+    if s != e:
+        lazy[2 * x] += diff
+        lazy[2 * x + 1] += diff
 
 
 def lazy_update(x, s, e):
     if lazy[x] == 0:
         return
-    tree[x] += (e - s + 1) * lazy[x]
-    # 리프노드가 아니면 자식들에게 미루기
-    if s != e:
-        lazy[2 * x] += lazy[x]
-        lazy[2 * x + 1] += lazy[x]
+    propagate(x, s, e, lazy[x])
     lazy[x] = 0
 
 
@@ -37,11 +38,7 @@ def update(x, s, e, S, E, diff):
     if S > e or s > E:
         return
     if S <= s and e <= E:
-        # lazy
-        tree[x] += (e - s + 1) * diff
-        if s != e:
-            lazy[2 * x] += diff
-            lazy[2 * x + 1] += diff
+        propagate(x, s, e, diff)
         return
     mid = (s + e)//2
     update(2 * x, s, mid, S, E, diff)
