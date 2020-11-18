@@ -18,7 +18,7 @@ for i in range(m):
     adj[v].append(u)
     c[u][v] = 1
 total = 0
-while 1:
+while True:
     q = deque()
     q.append(s)
     visited = [-1]*MAX
