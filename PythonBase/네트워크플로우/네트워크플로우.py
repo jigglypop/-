@@ -1,6 +1,6 @@
 # network flow
 from sys import *
-from collections import *
+from collections import deque
 from pprint import *
 stdin = open('네트워크플로우.txt', 'r')
 input = stdin.readline
@@ -21,14 +21,13 @@ total = 0
 while True:
     q = deque()
     q.append(s)
-    visited = [-1]*MAX
+    visited = [-1] * MAX
     visited[s] = s
     while q and visited[e] == -1:
         u = q.popleft()
         for v in adj[u]:
             if c[u][v]-f[u][v] > 0 and visited[v] == -1:
                 visited[v] = u
-                print(visited)
                 q.append(v)
     if visited[e] == -1:
         print(total)
