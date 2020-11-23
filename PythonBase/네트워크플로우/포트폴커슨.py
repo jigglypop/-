@@ -2,6 +2,8 @@ import sys
 from collections import defaultdict, deque
 INF = sys.maxsize
 sys.setrecursionlimit(10**6)
+sys.stdin = open('6086.txt', 'r')
+input = sys.stdin.readline
 pipe = defaultdict(lambda: defaultdict(int))
 n = int(input())
 for i in range(n):

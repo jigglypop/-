@@ -5,14 +5,14 @@ sys.stdin = open("upper.txt", "r")
 input = sys.stdin.readline
 
 N = int(input())
-log = 20
+log = int(log2(N)+1)
 tree = [[] for _ in range(N+1)]
 for _ in range(N-1):
     a, b = map(int, input().split())
     tree[a].append(b)
     tree[b].append(a)
 
-P = [[0] * (log+2) for i in range(N+1)]
+P = [[0] * (log+1) for i in range(N+1)]
 tin = [0 for _ in range(N+1)]
 tout = [0 for _ in range(N+1)]
 timer = 0

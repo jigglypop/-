@@ -1,4 +1,3 @@
-# pattern
 p = 'abcdabcef'
 s = 'alksdabcdabcflaskjflkabcdjsaflkjasdkdsajfabcdabceflksadjabcdaksfjffsdaf'      # text
 base = 256
