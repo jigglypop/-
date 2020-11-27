@@ -1,13 +1,13 @@
-# from math import ceil, log2
+from math import ceil, log2
 import sys
 # 10868
 sys.stdin = open('10868.txt', 'r')
 
 input = sys.stdin.readline
 N, M = map(int, input().split())
-# size = (1 << (ceil(log2(N))+1))
+size = (1 << (ceil(log2(N))+1))
 board = [int(input()) for _ in range(N)]
-tree = [0] * (4*N)
+tree = [0] * (size)
 
 
 def init(x, s, e):

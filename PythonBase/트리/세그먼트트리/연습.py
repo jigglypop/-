@@ -1,6 +1,6 @@
 import sys
 # 10868
-sys.stdin = open('세그먼트트리.txt', 'r')
+sys.stdin = open('10868.txt', 'r')
 
 input = sys.stdin.readline
 N, M = map(int, input().split())
