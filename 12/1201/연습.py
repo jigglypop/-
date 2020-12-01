@@ -1,18 +1,22 @@
 import sys
-sys.stdin = open('2169.txt', 'r')
+sys.stdin = open('2240.txt', 'r')
 
 input = sys.stdin.readline
-Y, X = map(int, input().split())
-board = [0] + [[0] + list(map(int, input().split())) for _ in range(Y)]
-DP = [[[-sys.maxsize] * 3 for _ in range(X + 2)] for _ in range(Y+1)]
-DP[1][1][1] = board[1][1]
-for x in range(2, X+1):
-    DP[1][x][1] = DP[1][x-1][1] + board[1][x]
-for y in range(2, Y+1):
-    for x in range(1, X+1):
-        DP[y][x][0] = max(DP[y-1][x][0], DP[y-1][x][1],
-                          DP[y-1][x][2]) + board[y][x]
-        DP[y][x][1] = max(DP[y][x-1][0], DP[y][x-1][1]) + board[y][x]
-    for x in range(X, 0, -1):
-        DP[y][x][2] = max(DP[y][x+1][0], DP[y][x+1][2]) + board[y][x]
-print(max(DP[Y][X]))
+S, W = map(int, input().split())
+board = [0] + [int(input()) for _ in range(S)]
+DP = [[-1]*(W+1) for _ in range(S+1)]
+
+
+def go(s, w):
+    if s == S+1 and w <= W:
+        return 0
+    if w > W:
+        return 0
+    if DP[s][w] != -1:
+        return DP[s][w]
+    rest = 1 if board[s] == w % 2 + 1 else 0
+    DP[s][w] = max(go(s+1, w+1), go(s+1, w)) + rest
+    return DP[s][w]
+
+
+print(max(go(1, 0), go(1, 1)))
