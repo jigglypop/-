@@ -18,7 +18,7 @@ def go(n, m):
         return DP[n][m]
     DP[n][m] = go(n-1, m)
     for i in range(n, 0, -1):
-        DP[n][m] = max(DP[n][m], board[n] - board[i-1] + go(i-2, m-1))
+        DP[n][m] = max(DP[n][m], board[n]-board[i-1] + go(i-2, m-1))
     return DP[n][m]
 
 
