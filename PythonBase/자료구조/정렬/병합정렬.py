@@ -4,7 +4,6 @@ def mergesort(arr):
     mid = len(arr) // 2
     before = mergesort(arr[:mid])
     after = mergesort(arr[mid:])
-
     result = []
     while before and after:
         if before[0] < after[0]:

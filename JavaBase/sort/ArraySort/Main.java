@@ -8,16 +8,12 @@ public class Main {
         StringTokenizer sk = new StringTokenizer(br.readLine());
         int N = Integer.parseInt(sk.nextToken());
         ArrayList<Integer> nums = new ArrayList<Integer>();
-        for (int i = 0; i < N; i++) {
-            int a = Integer.parseInt(br.readLine());
-            nums.add(a);
-        }
+        for (int i = 0; i < N; i++)
+            nums.add(Integer.parseInt(br.readLine()));
         Collections.sort(nums);
         StringBuilder sb = new StringBuilder();
-        for (int i = 0; i < N; i++) {
-            sb.append(nums.get(i)).append("\n");
-        }
+        for (int i = 0; i < N; i++)
+            sb.append(nums.get(i)).append(" ");
         System.out.println(sb);
-
     }
 }

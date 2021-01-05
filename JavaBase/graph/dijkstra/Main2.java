@@ -1,67 +1,68 @@
 import java.io.*;
 import java.util.*;
 
+// class Edge implements Comparable<Edge> {
+//     int to, cost;
+
+//     Edge(int to, int cost) {
+//         this.to = to;
+//         this.cost = cost;
+//     }
+
+//     @Override
+//     public int compareTo(Edge that) {
+//         return Integer.compare(this.cost, that.cost);
+//     }
+// }
+
 public class Main2 {
-    static final int INF = 1000000000;
-
-    static class Node implements Comparable<Node> {
-        int len, to;
-        Node next;
-
-        public Node(int len, int to, Node next) {
-            this.len = len;
-            this.to = to;
-            this.next = next;
-        }
-
-        @Override
-        public int compareTo(Node o) {
-            return this.len - o.len;
-        }
-    }
+    static StringTokenizer st;
 
     public static void main(String args[]) throws Exception {
         System.setIn(new FileInputStream("./input.txt"));
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        StringTokenizer stk = new StringTokenizer(br.readLine());
-        int V = Integer.parseInt(stk.nextToken());
-        int E = Integer.parseInt(stk.nextToken());
+        st = new StringTokenizer(br.readLine());
+        int n = Integer.parseInt(st.nextToken());
+        int m = Integer.parseInt(st.nextToken());
         int start = Integer.parseInt(br.readLine());
-
-        Node[] list = new Node[V + 1];
-        for (int i = 0; i < E; i++) {
-            stk = new StringTokenizer(br.readLine());
-            int st = Integer.parseInt(stk.nextToken());
-            int end = Integer.parseInt(stk.nextToken());
-            int len = Integer.parseInt(stk.nextToken());
-
-            list[st] = new Node(len, end, list[st]);
+        List<Edge>[] graph = new List[n + 1];
+        for (int i = 1; i <= n; i++) {
+            graph[i] = new ArrayList<Edge>();
         }
-
-        int distance[] = new int[V + 1];
-        Arrays.fill(distance, Integer.MAX_VALUE);
-        distance[start] = 0;
-        PriorityQueue<Node> pq = new PriorityQueue<Node>();
-        pq.offer(new Node(0, start, null));
-        while (!pq.isEmpty()) {
-            Node node = pq.poll();
-            if (distance[node.to] < node.len)
+        for (int i = 0; i < m; i++) {
+            st = new StringTokenizer(br.readLine());
+            int a = Integer.parseInt(st.nextToken());
+            int b = Integer.parseInt(st.nextToken());
+            int c = Integer.parseInt(st.nextToken());
+            graph[a].add(new Edge(b, c));
+        }
+        int[] dist = new int[n + 1];
+        Arrays.fill(dist, Integer.MAX_VALUE);
+        PriorityQueue<Edge> PQ = new PriorityQueue<>();
+        PQ.add(new Edge(start, 0));
+        dist[start] = 0;
+        while (!PQ.isEmpty()) {
+            Edge x = PQ.remove();
+            int u = x.to;
+            int w = x.cost;
+            if (dist[u] < w)
                 continue;
-
-            for (Node n = list[node.to]; n != null; n = n.next) {
-                if (distance[n.to] > distance[node.to] + n.len) {
-                    distance[n.to] = distance[node.to] + n.len;
-                    pq.offer(new Node(distance[n.to], n.to, null));
+            for (Edge y : graph[u]) {
+                int v = y.to;
+                int dw = y.cost;
+                if (dist[v] > dist[u] + dw) {
+                    dist[v] = dist[u] + dw;
+                    PQ.add(new Edge(v, dist[v]));
                 }
             }
         }
-
         StringBuilder sb = new StringBuilder();
-        for (int i = 1; i <= V; i++) {
-            if (distance[i] == Integer.MAX_VALUE)
+        for (int i = 1; i <= n; i++) {
+            if (dist[i] == Integer.MAX_VALUE) {
                 sb.append("INF\n");
-            else
-                sb.append(distance[i]).append("\n");
+            } else {
+                sb.append(dist[i]).append("\n");
+            }
         }
         System.out.println(sb.toString());
     }

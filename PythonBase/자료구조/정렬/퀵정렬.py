@@ -1,14 +1,16 @@
-def quicksort(arr):
-    if len(arr) <= 1:
-        return arr
-    pivot = arr[-1]
-    before, after = [], []
-    for i in range(len(arr)-1):
-        if arr[i] < pivot:
-            before.append(arr[i])
+def mergesort(nums):
+    if len(nums) <= 1:
+        return nums
+    mid = len(nums) // 2
+    before = mergesort(nums[:mid])
+    after = mergesort(nums[mid:])
+    result = []
+    while before and after:
+        if before[0] < after[0]:
+            result.append(before.pop(0))
         else:
-            after.append(arr[i])
-    return quicksort(before) + [pivot] + quicksort(after)
+            result.append(after.pop(0))
+    return result + before + after
 
 
-print(quicksort([3, 1, 4, 5, 2]))
+print(mergesort([3, 1, 4, 5, 2]))

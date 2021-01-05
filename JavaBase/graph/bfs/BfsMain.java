@@ -43,6 +43,5 @@ public class BfsMain {
         }
         visited = new boolean[N + 1];
         bfs(V);
-
     }
 }

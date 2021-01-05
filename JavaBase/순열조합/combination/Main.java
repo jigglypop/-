@@ -1,4 +1,4 @@
-import java.io.FileInputStream;
+import java.io.*;
 import java.util.*;
 
 public class Main {
@@ -25,13 +25,15 @@ public class Main {
 
     public static void main(String args[]) throws Exception {
         System.setIn(new FileInputStream("./input.txt"));
-        Scanner sc = new Scanner(System.in);
-        n = sc.nextInt();
-        int m = sc.nextInt();
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st = new StringTokenizer(br.readLine());
+        n = Integer.parseInt(st.nextToken());
+        int m = Integer.parseInt(st.nextToken());
         nums = new LinkedList<>();
         choice = new LinkedList<>();
+        st = new StringTokenizer(br.readLine());
         for (int i = 0; i < n; i++)
-            nums.add(sc.nextInt());
+            nums.add(Integer.parseInt(st.nextToken()));
         nums.sort(null);
         comb(0, 0, m);
     }

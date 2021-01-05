@@ -28,8 +28,8 @@ public class Main {
         // 4. remove
         words.remove(1);
         words.remove("e");
-        for (String i : words) {
-            System.out.printf("%s ", i);
+        for (String word : words) {
+            System.out.printf("%s ", word);
         }
         System.out.println();
 

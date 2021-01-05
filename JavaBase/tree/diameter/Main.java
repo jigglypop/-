@@ -1,4 +1,4 @@
-import java.io.FileInputStream;
+import java.io.*;
 import java.util.*;
 
 class Edge {

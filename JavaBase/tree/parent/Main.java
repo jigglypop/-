@@ -1,4 +1,4 @@
-import java.io.FileInputStream;
+import java.io.*;
 import java.util.*;
 
 class Node {
@@ -29,7 +29,7 @@ public class Main {
         }
         boolean[] check = new boolean[N + 1];
         int[] parent = new int[N + 1];
-        Queue<Integer> Q = new LinkedList<Integer>();
+        Queue<Integer> Q = new LinkedList<>();
         Q.add(1);
         check[1] = true;
         while (!Q.isEmpty()) {

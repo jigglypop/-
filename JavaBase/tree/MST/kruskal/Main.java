@@ -23,9 +23,8 @@ public class Main {
     static int[] parent;
 
     public static int find(int x) {
-        if (parent[x] == x) {
+        if (parent[x] == x)
             return x;
-        }
         return parent[x] = find(parent[x]);
     }
 
@@ -37,22 +36,6 @@ public class Main {
             return true;
         }
         return false;
-    }
-
-    public static long kruskal(PriorityQueue<Edge> pq, int V) {
-        parent = new int[V + 1];
-        for (int i = 1; i <= V; i++) {
-            parent[i] = i;
-        }
-        long result = 0;
-        while (V > 1) {
-            Edge p = pq.remove();
-            if (union(p.from, p.to)) {
-                result += p.cost;
-                V--;
-            }
-        }
-        return result;
     }
 
     public static void main(String args[]) throws Exception {
@@ -67,10 +50,17 @@ public class Main {
             int a = Integer.parseInt(st.nextToken());
             int b = Integer.parseInt(st.nextToken());
             int c = Integer.parseInt(st.nextToken());
-            pq.offer(new Edge(a, b, c));
+            pq.add(new Edge(a, b, c));
         }
-
-        long result = kruskal(pq, V);
+        parent = new int[V + 1];
+        for (int i = 1; i <= V; i++)
+            parent[i] = i;
+        long result = 0;
+        while (!pq.isEmpty()) {
+            Edge p = pq.remove();
+            if (union(p.from, p.to))
+                result += p.cost;
+        }
         System.out.println(result);
     }
 }

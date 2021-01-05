@@ -4,15 +4,16 @@ public class UpperBound {
         int start = 0;
         int end = nums.length - 1;
         int M = 4;
+        int result = 0;
         while (start <= end) {
             int mid = (start + end) / 2;
-            int temp = nums[mid];
-            if (temp > M) {
+            if (M < nums[mid]) {
+                result = mid;
                 end = mid - 1;
             } else {
                 start = mid + 1;
             }
         }
-        System.out.print(start);
+        System.out.print(result);
     }
 }

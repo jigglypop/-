@@ -37,7 +37,7 @@ public class Main {
             pq.add(new Pair(x, y));
         }
         while (!pq.isEmpty()) {
-            sb.append(pq.peek().x).append(" ").append(pq.poll().y).append("\n");
+            sb.append(pq.peek().x).append(" ").append(pq.remove().y).append("\n");
         }
         System.out.println(sb);
     }

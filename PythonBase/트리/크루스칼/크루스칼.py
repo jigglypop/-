@@ -1,7 +1,6 @@
 import sys
 sys.stdin = open("1922.txt", 'r')
 
-
 # 크루스칼 순서
 V = int(input())
 E = int(input())
@@ -15,24 +14,21 @@ edges.sort()
 result = 0
 
 
-def find(parent, x):
+def find(x):
     if parent[x] != x:
-        parent[x] = find(parent, parent[x])
+        parent[x] = find(parent[x])
     return parent[x]
 
 
-def union(parent, a, b):
-    a = find(parent, a)
-    b = find(parent, b)
-    if a > b:
-        parent[b] = a
-    else:
-        parent[a] = b
+def union(a, b):
+    a = find(a)
+    b = find(b)
+    parent[min(a, b)] = max(a, b)
 
 
 for edge in edges:
     cost, a, b = edge
-    if find(parent, a) != find(parent, b):
-        union(parent, a, b)
+    if find(a) != find(b):
+        union(a, b)
         result += cost
 print(result)
