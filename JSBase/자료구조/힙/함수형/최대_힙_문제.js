@@ -15,23 +15,25 @@ const heappush = (v) => {
   heap.push(v);
   let i = heap.length - 1;
   while (i > 1 && heap[Math.floor(i / 2)] < heap[i]) {
-    swap(Math.floor(i / 2), i);
+    swap(i, Math.floor(i / 2));
     i = Math.floor(i / 2);
   }
 };
 
 const heappop = () => {
-  if (heap.length < 2) return 0;
+  if (heap.length <= 1) return 0;
   let x = heap[1];
   heap[1] = heap[heap.length - 1];
   heap.pop();
   let i = 1;
   while (i * 2 < heap.length) {
-    let _i = [i * 2, i * 2 + 1].reduce(
-      (_i, i) => (heap[_i] < heap[i] ? i : _i),
-      i * 2
-    );
-    if (heap[i] > heap[_i]) break;
+    let max = heap[i * 2];
+    let _i = i * 2;
+    if (i * 2 + 1 < heap.length && max < heap[i * 2 + 1]) {
+      max = heap[i * 2 + 1];
+      _i = i * 2 + 1;
+    }
+    if (heap[i] > max) break;
     swap(i, _i);
     i = _i;
   }

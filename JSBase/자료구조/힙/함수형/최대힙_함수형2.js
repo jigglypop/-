@@ -20,13 +20,11 @@ const heappop = () => {
   heap.pop();
   let i = 1;
   while (i * 2 < heap.length) {
-    let max = heap[i * 2];
-    let _i = i * 2;
-    if (i * 2 + 1 < heap.length && max < heap[i * 2 + 1]) {
-      max = heap[i * 2 + 1];
-      _i = i * 2 + 1;
-    }
-    if (heap[i] > max) break;
+    let _i = [i * 2, i * 2 + 1].reduce(
+      (_i, i) => (heap[_i] < heap[i] ? i : _i),
+      i * 2
+    );
+    if (heap[i] > heap[_i]) break;
     swap(i, _i);
     i = _i;
   }
@@ -35,7 +33,7 @@ const heappop = () => {
 for (let i = 1; i < 10; i++) {
   heappush(i);
 }
-console.log(heap);
 for (let i = 1; i < 10; i++) {
-  console.log(heappop());
+  console.log(heap);
+  heappop();
 }
