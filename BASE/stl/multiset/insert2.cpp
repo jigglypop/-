@@ -24,8 +24,6 @@ int main()
     cout << "30 : " << ms.count(30) << endl;
     iter = ms.find(30);
     cout << "iter : " << *iter << endl;
-    multiset<int>::iterator lower_iter;
-    multiset<int>::iterator upper_iter;
 
     return 0;
 }
