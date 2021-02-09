@@ -1,62 +1,43 @@
 import sys
-sys.setrecursionlimit(100000)
+sys.setrecursionlimit(10**6)
 sys.stdin = open('2213.txt', 'r')
 input = sys.stdin.readline
 
 N = int(input())
 W = [0] + list(map(int, input().split()))
-tree = [[] for _ in range(N+1)]
-DP = [[0, 0] for _ in range(N+1)]
+tree = [[] for i in range(N+1)]
 for i in range(N-1):
     a, b = map(int, input().split())
     tree[a].append(b)
     tree[b].append(a)
+DP = [[0, 0] for i in range(N+1)]
 
 
 def go(u, parent):
-    for i in range(len(tree[u])):
-        v = tree[u][i]
-        if parent == tree[u][i]:
-            continue
-        go(tree[u][i], u)
     DP[u][1] = W[u]
-    DP[u][0] = 0
-    for i in range(len(tree[u])):
-        v = tree[u][i]
-        if parent == v:
-            continue
-        DP[u][1] += DP[v][0]
-        DP[u][0] += max(DP[v][0], DP[v][1])
+    for v in tree[u]:
+        if v != parent:
+            go(v, u)
+            DP[u][0] += max(DP[v][0], DP[v][1])
+            DP[u][1] += DP[v][0]
 
-
-go(1, 0)
-print(max(DP[1][0], DP[1][1]))
 
 result = []
 
 
-def gogo(x, y, parent):
-    if y == 0:
-        for i in range(len(tree[x])):
-            v = tree[x][i]
-            if parent == v:
-                continue
-            if DP[v][0] < DP[v][1]:
-                gogo(v, 1, x)
-            else:
-                gogo(v, 0, x)
-    elif y == 1:
-        result.append(x)
-        for i in range(len(tree[x])):
-            v = tree[x][i]
-            if parent == v:
-                continue
-            gogo(v, 0, x)
+def track(u, parent, last):
+    if not last:
+        if DP[u][0] < DP[u][1]:
+            result.append(u)
+            last = True
+    else:
+        last = False
+    for v in tree[u]:
+        if v != parent:
+            track(v, u, last)
 
 
-if DP[1][0] < DP[1][1]:
-    gogo(1, 1, 0)
-else:
-    gogo(1, 0, 0)
-sorted(result)
-print(*result)
+go(1, 0)
+track(1, 0, False)
+print(max(DP[1]))
+print(*sorted(result))

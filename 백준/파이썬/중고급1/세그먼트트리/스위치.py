@@ -9,7 +9,6 @@ tree = [0] * (1 << (H+1))
 lazy = [0] * (1 << (H+1))
 
 
-
 for _ in range(M):
     a, b, c = map(int, input().split())
     if a == 0:
