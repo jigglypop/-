@@ -1,7 +1,7 @@
 import sys
 from collections import deque
 sys.stdin = open("11657.txt", "r")
-# https://www.acmicpc.net/problem/11657
+
 input = sys.stdin.readline
 INF = sys.maxsize
 Y, X = map(int, input().split())

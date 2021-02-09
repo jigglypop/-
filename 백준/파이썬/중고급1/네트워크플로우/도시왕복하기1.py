@@ -26,10 +26,11 @@ while True:
                 prev[v] = u
     if prev[t] == -1:
         break
+    flow = 1
     x = t
     while x != s:
         F[prev[x]][x] += 1
         F[x][prev[x]] -= 1
         x = prev[x]
-    total += 1
+    total += flow
 print(total)
