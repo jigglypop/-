@@ -49,7 +49,7 @@ def SPFA(s, e):
         inq[u] = False
         for v in graph[u]:
             if C[u][v] - flow[u][v] > 0 and dist[v] > dist[u] + d[u][v]:
-                dist[v] = dist[u]+d[u][v]
+                dist[v] = dist[u] + d[u][v]
                 prev[v] = u
                 if not inq[v]:
                     Q.append(v)
