@@ -13,23 +13,22 @@ for _ in range(X):
 
 def SPFA():
     dist = [INF] * (Y+1)
-    check = [False] * (Y+1)
-    count = [0] * (Y+1)
-
+    cycle = [0] * (Y+1)
     dist[1] = 0
+    inQ = [False] * (Y+1)
     Q = deque([1])
-    check[1] = True
+    inQ[1] = True
     while Q:
         u = Q.popleft()
-        check[u] = False
+        inQ[u] = False
         for cost, v in graph[u]:
             if dist[v] > dist[u] + cost:
                 dist[v] = dist[u] + cost
-                if not check[v]:
+                if not inQ[v]:
                     Q.append(v)
-                    check[v] = True
-                    count[v] += 1
-                    if count[v] >= Y:
+                    inQ[v] = True
+                    cycle[v] += 1
+                    if cycle[v] >= Y:
                         return [-1]
     if Y == 1:
         return [dist[1]]
