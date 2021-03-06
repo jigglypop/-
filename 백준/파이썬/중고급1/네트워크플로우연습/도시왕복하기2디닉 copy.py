@@ -20,8 +20,8 @@ def Dinic(G, C, s, t):
         if val == 0:
             level[u] -= 1
         return val
-    Q, tot, n, flow = deque(), 0, len(G), defaultdict(int)
-    while 1:
+    Q, total, n, flow = deque(), 0, len(G), defaultdict(int)
+    while True:
         Q.append(s)
         level = [-1]*n
         level[s] = 0
@@ -32,8 +32,8 @@ def Dinic(G, C, s, t):
                     level[v] = level[u]+1
                     Q.append(v)
         if level[t] == -1:
-            return tot  # , flow
-        tot += send(s, sum(C[(s, v)] for v in G[s]))
+            return total  # , flow
+        total += send(s, sum(C[(s, v)] for v in G[s]))
 
 
 def addedge(i, j, cap):
@@ -54,3 +54,4 @@ for i in range(p):
     addedge(a+n-1, b-1, 1)
     addedge(b+n-1, a-1, 1)
 print(Dinic(G, C, n, 1))
+print(G)
