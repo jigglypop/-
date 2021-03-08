@@ -7,7 +7,7 @@ input = sys.stdin.readline
 n, p = map(int, input().split())
 C = [[0] * (2 * n) for _ in range(2 * n)]
 F = [[0] * (2 * n) for _ in range(2 * n)]
-graph = [[] for _ in range(2*n)]
+graph = [[] for _ in range(2 * n)]
 
 for i in range(p):
     a, b = map(int, input().split())

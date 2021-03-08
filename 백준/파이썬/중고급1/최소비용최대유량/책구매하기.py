@@ -53,7 +53,7 @@ while True:
     flow = INF
     x = E
     while x != S:
-        flow = min(flow, C[parent[x]][x]-F[parent[x]][x])
+        flow = min(flow, C[parent[x]][x] - F[parent[x]][x])
         x = parent[x]
     x = E
     while x != S:
