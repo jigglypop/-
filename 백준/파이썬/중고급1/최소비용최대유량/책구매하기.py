@@ -1,6 +1,6 @@
 import sys
 from collections import deque
-sys.stdin = open('11405.txt')
+sys.stdin = open('11405.txt', "r")
 INF = sys.maxsize
 X, Y = map(int, input().split())
 A = list(map(int, input().split()))
