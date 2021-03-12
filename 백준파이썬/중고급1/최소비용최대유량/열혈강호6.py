@@ -1,36 +1,41 @@
 import sys
 from collections import deque
-sys.stdin = open('11405.txt', "r")
+from pprint import pprint
+sys.stdin = open('11409.txt', 'r')
 INF = sys.maxsize
 X, Y = map(int, input().split())
-A = list(map(int, input().split()))
-B = list(map(int, input().split()))
-books = [list(map(int, input().split())) for _ in range(Y)]
 S = X + Y
 E = X + Y + 1
 C = [[0] * (X + Y + 2) for _ in range(X + Y + 2)]
 F = [[0] * (X + Y + 2) for _ in range(X + Y + 2)]
 cost = [[0] * (X + Y + 2) for _ in range(X + Y + 2)]
 graph = [[] for _ in range(X + Y + 2)]
+
 for i in range(X):
-    C[i + Y][E] = A[i]
-    graph[i + Y].append(E)
-    graph[E].append(i + Y)
+    C[S][i] = 1
+    graph[S].append(i)
+    graph[i].append(S)
 
 for i in range(Y):
-    C[S][i] = B[i]
-    graph[i].append(S)
-    graph[S].append(i)
+    C[i + X][E] = 1
+    graph[i + X].append(E)
+    graph[E].append(i + X)
 
-for y in range(Y):
-    for x in range(X):
-        C[y][x + Y] = INF
-        cost[y][x + Y] = books[y][x]
-        cost[x + Y][y] = -cost[y][x + Y]
-        graph[x + Y].append(y)
-        graph[y].append(x + Y)
 
-result = 0
+for i in range(X):
+    temp = list(map(int, input().split()))
+    jobs = [temp[i:i + 2] for i in range(1, len(temp), 2)]
+    for job in jobs:
+        j, c = job
+        j -= 1
+        C[i][j + X] = 1
+        cost[i][j + X] = -c
+        cost[j + X][i] = c
+        graph[i].append(j + X)
+        graph[j + X].append(i)
+
+count = 0
+total = 0
 while True:
     Q = deque([S])
     parent = [-1] * (X + Y + 2)
@@ -53,12 +58,14 @@ while True:
     flow = INF
     x = E
     while x != S:
-        flow = min(flow, C[parent[x]][x] - F[parent[x]][x])
+        flow = min(flow, C[parent[x]][x]-F[parent[x]][x])
         x = parent[x]
     x = E
     while x != S:
-        result += flow * cost[parent[x]][x]
+        total += flow * cost[parent[x]][x]
         F[parent[x]][x] += flow
         F[x][parent[x]] -= flow
         x = parent[x]
-print(result)
+    count += 1
+print(count)
+print(-total)

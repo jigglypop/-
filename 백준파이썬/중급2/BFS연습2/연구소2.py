@@ -21,7 +21,6 @@ for y in range(Y):
             zero += 1
         else:
             _board[y][x] = 1
-
 orders = list(combinations([i for i in range(len(two))], M))
 
 
