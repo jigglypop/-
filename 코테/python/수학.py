@@ -89,6 +89,37 @@ from collections import deque
 # print((a % c*b % c) % c)
 
 
+# 소수 판별
+
+# def isPrime(a):
+#     if a < 2:
+#         return False
+#     for i in range(2, int(a ** 0.5)+1):
+#         if a % i == 0:
+#             return False
+#     return True
+
+
+# 에라토스테네스2
+
+# MAX = 1000001
+# check = [0] * MAX
+# check[0] = check[1] = True
+
+# for i in range(2, MAX):
+#     if not check[i]:
+#         j = i+i
+#         while j < MAX:
+#             check[j] = True
+#             j += i
+
+# 최대공약수 간단
+
+# n, m = N, M
+# while n > 0:
+#     m, n = n, m % n
+
+
 def oddNumbers(l, r):
     # Write your code here
     return [i for i in range(l, r+1) if i % 2 == 1]

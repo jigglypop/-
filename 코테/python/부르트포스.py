@@ -172,6 +172,45 @@ result = []
 # print(bisect_left(nums, 4))
 # print(bisect_right(nums, 4))
 
+
+# 두 수의 합
+
+# N = int(input())
+# nums = list(map(int, input().split()))
+# nums.sort()
+# M = int(input())
+# result = 0
+# left = 0
+# right = N-1
+
+# while left < right:
+#     if nums[left] + nums[right] >= M:
+#         if nums[left] + nums[right] == M:
+#             result += 1
+#         right -= 1
+#     if nums[left] + nums[right] < M:
+#         left += 1
+# print(result)
+
+
+# 수들의 합
+
+# N, M = map(int, input().split())
+# board = list(map(int, input().split()))
+# Sum = right = left = result = 0
+# while True:
+#     if Sum >= M:
+#         if Sum == M:
+#             result += 1
+#         Sum -= board[left]
+#         left += 1
+#     elif Sum < M:
+#         if right == N:
+#             break
+#         Sum += board[right]
+#         right += 1
+# print(result)
+
 def oddNumbers(l, r):
     # Write your code here
     Q = deque()

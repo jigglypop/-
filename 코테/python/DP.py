@@ -51,6 +51,20 @@ from collections import deque
 # fibonacci(n)
 # print(DP[n])
 
+
+# LIS
+
+# N = int(input())
+# S = [0] + list(map(int, input().split()))
+# DP = [0] * (N+1)
+# DP[1] = 1
+# for i in range(2, N+1):
+#     for j in range(1, i):
+#         if S[i] > S[j]:
+#             DP[i] = max(DP[j], DP[i])
+#     DP[i] += 1
+# print(max(DP))
+
 def oddNumbers(l, r):
     # Write your code here
     return [i for i in range(l, r+1) if i % 2 == 1]
