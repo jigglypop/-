@@ -14,17 +14,17 @@ for _ in range(m):
 
 
 def dijkstra(start):
-    dist = [INF]*(n+1)
-    heap = [(0, start)]
+    dist = [INF]* (n+1)
+    Q = [(0, start)]
     dist[start] = 0
-    while heap:
-        cost, u = heappop(heap)
+    while Q:
+        cost, u = heappop(Q)
         if dist[u] < cost:
             continue
         for w, v in graph[u]:
             if dist[v] > dist[u] + w:
                 dist[v] = dist[u] + w
-                heappush(heap, (dist[v], v))
+                heappush(Q, (dist[v], v))
     return dist
     # INF = sys.maxsize
     # dist = [INF] * (n + 1)
