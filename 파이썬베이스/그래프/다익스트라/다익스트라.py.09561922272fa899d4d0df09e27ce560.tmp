@@ -14,7 +14,7 @@ for _ in range(m):
 
 
 def dijkstra(start):
-    dist = [INF] * (n+1)
+    dist = [INF]* (n+1)
     Q = [(0, start)]
     dist[start] = 0
     while Q:
