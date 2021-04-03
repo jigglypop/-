@@ -10,7 +10,7 @@ board2 = [[1, 2, 3, 4],
 # 90도 돌리기
 
 
-def rotate90(y, board):
+def rotate90(board):
     Y = len(board)
     X = len(board[0])
     return [[board[~y][x] for y in range(Y)] for x in range(X)]
@@ -38,13 +38,13 @@ def Print(board):
     return list(map(lambda a: print(*a), board))
 
 
-Print(rotate90(1, board))
+Print(rotate90(board))
 print('---')
 Print(rotate180(1, board))
 print('---')
 Print(rotate270(1, board))
 print('---')
-Print(rotate90(1, board2))
+Print(rotate90(board2))
 print('---')
 Print(rotate180(1, board2))
 print('---')
