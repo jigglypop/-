@@ -21,8 +21,8 @@ for _ in range(int(input())):
     for it in range(n):
         for v in range(1, n+1):
             for nv, nw in graph[v]:
-                if dist[nv] > dist[v]+nw:
-                    dist[nv] = dist[v]+nw
+                if dist[nv] > dist[v] + nw:
+                    dist[nv] = dist[v] + nw
                     if it == n-1:
                         result = "YES"
                         break

@@ -13,7 +13,7 @@ def fibonacci(n):
     return DP[n]
 
 
-n = int(input())
+n = 10
 DP = [-1] * (n+1)
 fibonacci(n)
 print(DP[n])
