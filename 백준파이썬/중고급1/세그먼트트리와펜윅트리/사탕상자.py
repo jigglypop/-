@@ -2,42 +2,25 @@ import sys
 sys.stdin = open("2243.txt", "r")
 input = sys.stdin.readline
 N = int(input())
-# MAX = 1000001
-MAX = 6
-tree = [0] * (2 * MAX)
+tree = [0] * (4 * N)
 
 
-def update(i, x):
-    tree[i] += x
-    while i > 1:
-        tree[i // 2] = tree[i] + tree[i ^ 1]
-        i //= 2
-
-
-def query(l, r, n):
-    res = 0
-    while l <= r:
-        if l % 2:
-            res += tree[l]
-            l += 1
-        if not (r % 2):
-            res += tree[r]
-            r -= 1
-        l >>= 1
-        r >>= 1
-    # if l == r:
-    #     res += tree[r]
-    return res
+def update(x, s, e, i, diff):
+    if i < s or i > e:
+        return
+    tree[x] += diff
+    if s != e:
+        m = (s + e) // 2
+        update(2 * x, s, m, i, diff)
+        update(2 * x, m + 1, e, i, diff)
 
 
 for _ in range(N):
     temp = list(map(int, input().split()))
     if temp[0] == 2:
-        a, b = temp[1] + MAX, temp[2]
-        print(a, a - MAX, b)
-        update(a, b)
+        i, diff = temp[1], temp[2]
+        update(1, 1, N + 1, i, diff)
         print(tree)
     else:
         n = temp[1]
-        res = query(7, 8, n)
-        print(res)
+print(tree)
