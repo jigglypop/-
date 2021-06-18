@@ -15,7 +15,7 @@ def update(i, x):
 
 def query(l, r):
     res = 0
-    while l < r:
+    while l <= r:
         if l % 2:
             res = max(res, tree[l])
             l += 1
@@ -24,8 +24,6 @@ def query(l, r):
             r -= 1
         l >>= 1
         r >>= 1
-    if l == r:
-        res = max(res, tree[l])
     return res
 
 
