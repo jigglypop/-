@@ -18,8 +18,6 @@ def query(l, r):
             r -= 1
         l >>= 1
         r >>= 1
-    if l == r:
-        res = min(res, tree[l])
     return res
 
 

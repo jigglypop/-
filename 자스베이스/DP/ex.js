@@ -1,3 +1,5 @@
-var fs = require("fs");
-var input = fs.readFileSync("./ex.txt").toString().split("\r\n");
-console.log(input);
+const text = "";
+console.log(text.match(/[\w]+.md/g) || text === "");
+console.log(new Date());
+const date = new Date().toString();
+console.log(date.split("T"));
