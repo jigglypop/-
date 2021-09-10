@@ -1,5 +1,5 @@
 import sys
-sys.stdin = open("./1717.txt", 'r')
+sys.stdin = open("./test/1717.txt", 'r')
 
 N, M = map(int, input().split())
 parent = [i for i in range(N+1)]

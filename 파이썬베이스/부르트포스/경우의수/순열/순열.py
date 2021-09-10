@@ -7,7 +7,6 @@ def PERM(arr, r):
 
     def perm(k, chosen, used):
         if k == r:
-            # 파이썬은 포인터값을 저장하기 때문에 참조 원본이 바뀌면 복사해서 넣어주어야 함
             result.append(chosen[::])
             return
         for i in range(len(arr)):
