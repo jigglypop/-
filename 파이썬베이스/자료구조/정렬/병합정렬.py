@@ -1,9 +1,9 @@
-def mergesort(arr):
+def merge(arr):
     if len(arr) <= 1:
         return arr
     mid = len(arr) // 2
-    before = mergesort(arr[:mid])
-    after = mergesort(arr[mid:])
+    before = merge(arr[:mid])
+    after = merge(arr[mid:])
     result = []
     while before and after:
         if before[0] < after[0]:
@@ -13,4 +13,4 @@ def mergesort(arr):
     return result + before + after
 
 
-print(mergesort([3, 1, 4, 5, 2]))
+print(merge([3, 1, 4, 5, 2]))

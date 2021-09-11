@@ -1,9 +1,10 @@
 import sys
-sys.stdin = open('3273.txt', 'r')
+sys.stdin = open('./test/3273.txt', 'r')
 input = sys.stdin.readline
 N = int(input())
 nums = list(map(int, input().split()))
 nums.sort()
+print(nums)
 M = int(input())
 result = 0
 left = 0
