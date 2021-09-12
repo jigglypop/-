@@ -2,7 +2,7 @@ def KMPSearch(pat, txt):
     M = len(pat)
     N = len(txt)
 
-    lps = [0]*M
+    lps = [0] * M
 
     # Preprocess the pattern
     computeLPS(pat, lps)

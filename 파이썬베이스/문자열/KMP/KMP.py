@@ -1,37 +1,34 @@
-def preprocessing(p):
-    m = len(p)
-    pi = [0] * m
-    pi[0] = 0
+def LPS(pat):
+    lps = [0] * len(pat)
     j = 0
-    for i in range(1, m):
-        while j > 0 and p[i] != p[j]:
-            j = pi[j - 1]
-        if p[i] == p[j]:
-            pi[i] = j + 1
+    for i in range(1, len(pat)):
+        while j > 0 and pat[i] != pat[j]:
+            j = lps[j - 1]
+        if pat[i] == pat[j]:
             j += 1
+            lps[i] = j
         else:
-            pi[i] = 0
-    return pi
+            lps[i] = 0
+    return lps
 
 
-def kmp(s, p):
-    pi = preprocessing(p)
-    n = len(s)
-    m = len(p)
+def kmp(txt, pat):
+    lps = LPS(pat)
+    P = len(pat)
     j = 0
-    ans = []
-    for i in range(n):
-        while j > 0 and s[i] != p[j]:
-            j = pi[j-1]
-        if s[i] == p[j]:
-            if j == m-1:
-                ans.append(i - m + 1)
-                j = pi[j]
+    result = []
+    for i in range(len(txt)):
+        while j > 0 and txt[i] != pat[j]:
+            j = lps[j-1]
+        if txt[i] == pat[j]:
+            if j == P - 1:
+                result.append(i - P + 1)
+                j = lps[j]
             else:
                 j += 1
-    return ans
+    return result
 
 
-txt = 'ABXABABXAB'
-pat = 'ABXAB'
+txt = 'ABXABABYABCDE'
+pat = 'ABYAB'
 print(kmp(txt, pat))
