@@ -1,19 +1,14 @@
 def LPS(pat):
-    lps = [0] * (len(pat) + 1)
-    t = 1
-    p = 0
-    print(pat[t])
-    while t != len(pat):
-        if pat[t] == pat[p]:
-            t += 1
-            p += 1
-            lps[t] = p
-        elif p == 0:
-            t += 1
-            lps[t] = p
+    lps = [0] * len(pat)
+    j = 0
+    for i in range(1, len(pat)):
+        while j > 0 and pat[i] != pat[j]:
+            j = lps[j - 1]
+        if pat[i] == pat[j]:
+            j += 1
+            lps[i] = j
         else:
-            p = lps[p]
-    print(lps)
+            lps[i] = 0
     return lps
 
 
@@ -35,5 +30,5 @@ def kmp(txt, pat):
 
 
 txt = 'ABXABABYABCDE'
-pat = 'BBYXAB'
+pat = 'ABYAB'
 print(kmp(txt, pat))
