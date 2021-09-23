@@ -1,6 +1,6 @@
 from pprint import pprint
 import sys
-sys.stdin = open("./12784.txt", "r")
+sys.stdin = open("./text/12784.txt", "r")
 input = sys.stdin.readline
 INF = sys.maxsize
 
