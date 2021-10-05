@@ -7,14 +7,12 @@ nums.sort()
 print(nums)
 M = int(input())
 result = 0
-left = 0
-right = N-1
-
-while left < right:
-    if nums[left] + nums[right] >= M:
-        if nums[left] + nums[right] == M:
+l, r = 0, N - 1
+while l < r:
+    if nums[l] + nums[r] >= M:
+        if nums[l] + nums[r] == M:
             result += 1
-        right -= 1
-    if nums[left] + nums[right] < M:
-        left += 1
+        r -= 1
+    if nums[l] + nums[r] < M:
+        l += 1
 print(result)
