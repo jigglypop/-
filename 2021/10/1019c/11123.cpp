@@ -3,6 +3,7 @@
 #include <queue>
 #include <string.h>
 using namespace std;
+
 int  sum;
 char board[102][102];
 bool check[102][102];
