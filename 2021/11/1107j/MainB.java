@@ -2,7 +2,7 @@ import java.io.*;
 import java.util.*;
 
 
-public class B {
+public class MainB {
 
     static int Y, X;
     static boolean[][] visited;
