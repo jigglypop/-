@@ -1,0 +1,168 @@
+{
+    // IntelliSense를 사용하여 가능한 특성에 대해 알아보세요.
+    // 기존 특성에 대한 설명을 보려면 가리킵니다.
+    // 자세한 내용을 보려면 https://go.microsoft.com/fwlink/?linkid=830387을(를) 방문하세요.
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - Main",
+            "request": "launch",
+            "mainClass": "Main",
+            "projectName": "PointSort_1805b947"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - Main",
+            "request": "launch",
+            "mainClass": "Main",
+            "projectName": "sort_eda27e5"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - BfsGraph",
+            "request": "launch",
+            "mainClass": "BfsGraph",
+            "projectName": "bfs_d9891a5"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - BfsMain",
+            "request": "launch",
+            "mainClass": "BfsMain",
+            "projectName": "bfs_d9891a5"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - BfsExample",
+            "request": "launch",
+            "mainClass": "BfsExample",
+            "projectName": "bfs_d9891a5"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - UpperBound",
+            "request": "launch",
+            "mainClass": "UpperBound",
+            "projectName": "이분탐색_2d79453"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - LowerBound",
+            "request": "launch",
+            "mainClass": "LowerBound",
+            "projectName": "이분탐색_2d79453"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - UpperBound",
+            "request": "launch",
+            "mainClass": "UpperBound",
+            "projectName": "3_425d89e5"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - LowerBound",
+            "request": "launch",
+            "mainClass": "LowerBound",
+            "projectName": "3_425d89e5"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - BinarySearcy",
+            "request": "launch",
+            "mainClass": "BinarySearcy",
+            "projectName": "3_425d89e5"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - ArraySumForIn",
+            "request": "launch",
+            "mainClass": "ArraySumForIn",
+            "projectName": "2_425d89e4"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - Int2DArray",
+            "request": "launch",
+            "mainClass": "Int2DArray",
+            "projectName": "2_425d89e4"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - IntArrayInit",
+            "request": "launch",
+            "mainClass": "IntArrayInit",
+            "projectName": "2_425d89e4"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - IntArray",
+            "request": "launch",
+            "mainClass": "IntArray",
+            "projectName": "2_425d89e4"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - TriangleLB",
+            "request": "launch",
+            "mainClass": "TriangleLB",
+            "projectName": "1_425d89e3"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - SumFor",
+            "request": "launch",
+            "mainClass": "SumFor",
+            "projectName": "1_425d89e3"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - SumWhile",
+            "request": "launch",
+            "mainClass": "SumWhile",
+            "projectName": "1_425d89e3"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - Median",
+            "request": "launch",
+            "mainClass": "Median",
+            "projectName": "1_425d89e3"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - Max3",
+            "request": "launch",
+            "mainClass": "Max3",
+            "projectName": "1_425d89e3"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - a",
+            "request": "launch",
+            "mainClass": "a",
+            "projectName": "0929j_94750ea6"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - hello",
+            "request": "launch",
+            "mainClass": "hello",
+            "projectName": "0929j_94750ea6"
+        },
+        {
+            "type": "java",
+            "name": "Debug (Launch) - Current File",
+            "request": "launch",
+            "mainClass": "${file}"
+        },
+        {
+            "type": "java",
+            "name": "Debug (Launch)-Main<0929j_94750ea6>",
+            "request": "launch",
+            "mainClass": "Main",
+            "projectName": "0929j_94750ea6"
+        }
+    ]
+}
