@@ -29,9 +29,7 @@ public class BfsMain {
         int M = sc.nextInt();
         int V = sc.nextInt();
         graph = new ArrayList[N + 1];
-        for (int i = 1; i <= N; i++) {
-            graph[i] = new ArrayList<Integer>();
-        }
+        for (int i = 1; i <= N; i++)  graph[i] = new ArrayList<Integer>();
         for (int i = 0; i < M; i++) {
             int u = sc.nextInt();
             int v = sc.nextInt();
