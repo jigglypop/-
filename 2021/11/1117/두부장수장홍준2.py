@@ -4,63 +4,84 @@ from collections import deque
 sys.stdin = open("./text/11111.txt", "r")
 input = sys.stdin.readline
 INF = sys.maxsize
-Y, X = map(int, input().split())
-n = Y * X
-N = 2 * n + 2
-S, E = 1, 2 * n
-total = [0]
-board = [list(input().rstrip()) for _ in range(Y)]
-graph = [[] * N for _ in range(N)]
-C = [[0] * N for _ in range(N)]
-F = [[0] * N for _ in range(N)]
-cost = [[0] * N for _ in range(N)]
-di = ((-1, 0), (0, -1), (1, 0), (0, 1))
-table = [
+score = [
     [10, 8, 7, 5, 1],
     [8, 6, 4, 3, 1],
     [7, 4, 3, 2, 1],
     [5, 3, 2, 2, 1],
-    [1, 1, 1, 1, 0]]
-alpha = {
-    "A": 0,
-    "B": 1,
-    "C": 2,
-    "D": 3,
-    "F": 4
-}
+    [1, 1, 1, 1, 0]
+]
+di = ((0, 1), (0, -1), (1, 0), (-1, 0))
+Y, X = map(int,input().split())
+N = Y * X + 2
+S, E = N - 2, N - 1
+total = [0]
+C = [[0] * N for _ in range(N)]
+cost = [[0] * N for _ in range(N)]
+F = [[0]  *N for _ in range(N)]
+graph=[[] for _ in range(N)]
+board = [[*input()] for _ in range(Y)]
+for i in range(Y):
+    for j in range(X):
+        board[i][j] = ord(board[i][j]) - 65 if board[i][j] != 'F' else 4
 
-def P(board):
-    for b in board:
-        print(b)
-    print()
-
-def edge(a, b, f, w):
-    C[a][b] = f
-    cost[a][b] = w
-    cost[b][a] = -w
+def edge(a, b):
+    C[a][b]=1
     graph[a].append(b)
     graph[b].append(a)
 
 for y in range(Y):
     for x in range(X):
-        i = y * Y + x + 1
-        for dy, dx in di:
-            ny, nx = y + dy, x + dx
-            if 0 <= ny < Y and 0 <= nx < X:
-                j = ny * Y + nx + 1
-                if i < j:
-                    a, b, c, d = 2 * i - 1, 2 * i, 2 * j - 1, 2 * j
-                else:
-                    a, b, c, d = 2 * j - 1, 2 * j , 2 * i -1, 2 * i
-                A = alpha[board[y][x]]
-                B = alpha[board[ny][nx]]
-                w = table[A][B]
-                edge(b, c, 1, w)
-                edge(a, b, 1, 0)
-                edge(c, d, 1, 0)
-print(S, E)
+        a = y * X + x
+        if (y + x) % 2 == 0:
+            edge(S, a)
+            edge(a, E)
+            for dy, dx in di:
+                nx, ny= y + dy, x + dx
+                b = nx * X + ny
+                if 0 <= nx < Y and 0 <= ny < X:
+                    edge(a, b)
+                    cost[a][b] = -score[board[y][x]][board[nx][ny]]
+                    cost[b][a] = -cost[a][b]
+        else:
+            edge(a, E)
+
+def spfa():
+    Q = deque([S])
+    dist = [INF] * N
+    inQ = [False] * N
+    dist[S] = 0
+    inQ[S] = True
+    while Q:
+        u = Q.popleft()
+        inQ[u] = False
+        for v in graph[u]:
+            if C[u][v] > F[u][v] and dist[v] > dist[u] + cost[u][v]:
+                dist[v] = dist[u] + cost[u][v]
+                parent[v] = u
+                if not inQ[v]:
+                    inQ[v] = True
+                    Q.append(v)
+
+def find(v, f):
+    if v == S:
+        return f
+    u = parent[v]
+    return find(u, min(f, C[u][v] - F[u][v]))
+
+def flow(v, f):
+    if v == S:
+        return
+    u = parent[v]
+    total[0] += f * cost[u][v]
+    F[u][v] += f
+    F[v][u] -= f
+    flow(u, f)
 
 while True:
     parent = [0] * N
+    spfa()
     if not parent[E]: break
-print(total[0])
+    f = find(E, INF)
+    flow(E, f)
+print(-total[0])
