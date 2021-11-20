@@ -9,7 +9,7 @@ for i in reversed(range(1, N)):
 
 def query(l, r):
     res = sys.maxsize
-    while l < r:
+    while l <= r:
         if l % 2:
             res = min(res, tree[l])
             l += 1
