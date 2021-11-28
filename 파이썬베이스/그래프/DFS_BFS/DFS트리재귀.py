@@ -12,7 +12,6 @@ graph = [
 
 def DFS(u, visited):
     visited[u] = True
-    # print(u, end=" ")
     for v in graph[u]:
         if not visited[v]:
             DFS(v, visited)

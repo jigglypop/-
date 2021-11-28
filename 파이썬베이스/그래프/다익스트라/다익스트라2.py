@@ -12,7 +12,7 @@ for _ in range(m):
     graph[a].append([b, c])
     graph[b].append([a, c])
 
-dist = [INF] * (n+1)
+dist = [INF] * (n + 1)
 
 
 def dijkstra(start):

@@ -17,7 +17,7 @@ for _ in range(N-1):
     tree[b].append(a)
 
 # 전처리 BFS로 깊이와 부모 노드 구함
-check = [False] * (N+1)
+check = [False] * (N + 1)
 Q = deque([1])
 check[1] = True
 while Q:

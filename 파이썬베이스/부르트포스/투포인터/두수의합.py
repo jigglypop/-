@@ -4,7 +4,6 @@ input = sys.stdin.readline
 N = int(input())
 nums = list(map(int, input().split()))
 nums.sort()
-print(nums)
 M = int(input())
 result = 0
 l, r = 0, N - 1

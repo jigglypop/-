@@ -10,10 +10,12 @@ for i in range(M):
     a, b = map(int, input().split())
     graph[a].append(b)
     check[b] += 1
+
 Q = deque()
 for i in range(1, N+1):
     if check[i] == 0:
         Q.append(i)
+        
 while Q:
     u = Q.popleft()
     for v in graph[u]:

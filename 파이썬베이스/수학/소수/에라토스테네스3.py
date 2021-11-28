@@ -4,10 +4,8 @@ check[0] = check[1] = True
 
 for i in range(2, (n + 1)):
     if not check[i]:
-        j = i + i
-        while j < (n + 1):
+        for j in range(2 * i, n + 1, i):
             check[j] = True
-            j += i
 
 for i in range(m, n+1):
     if check[i] == False:
