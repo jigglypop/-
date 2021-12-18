@@ -9,27 +9,27 @@ const tree = Array(log2).fill(0);
 const INF = Number.MAX_SAFE_INTEGER;
 
 const init = (x, s, e) => {
-  if (s === e) {
-    tree[x] = board[e];
+    if (s === e) {
+        tree[x] = board[e];
+        return tree[x];
+    }
+    mid = parseInt((s + e) / 2);
+    tree[x] = Math.min(init(2 * x, s, mid), init(2 * x + 1, mid + 1, e));
     return tree[x];
-  }
-  mid = parseInt((s + e) / 2);
-  tree[x] = Math.min(init(2 * x, s, mid), init(2 * x + 1, mid + 1, e));
-  return tree[x];
 };
 
 init(1, 0, N - 1);
 const query = (x, s, e, S, E) => {
-  if (S > e || s > E) return INF;
-  if (s >= S && e <= E) return tree[x];
-  mid = parseInt((s + e) / 2);
-  return Math.min(
-    query(2 * x, s, mid, S, E),
-    query(2 * x + 1, mid + 1, e, S, E)
-  );
+    if (S > e || s > E) return INF;
+    if (s >= S && e <= E) return tree[x];
+    mid = parseInt((s + e) / 2);
+    return Math.min(
+        query(2 * x, s, mid, S, E),
+        query(2 * x + 1, mid + 1, e, S, E)
+    );
 };
 
 for (let temp of input) {
-  const [start, end] = temp.split(" ").map((x) => parseInt(x));
-  console.log(query(1, 0, N - 1, start - 1, end - 1));
+    const [start, end] = temp.split(" ").map((x) => parseInt(x));
+    console.log(query(1, 0, N - 1, start - 1, end - 1));
 }
