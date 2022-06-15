@@ -2,7 +2,6 @@ def LPS(pat):
     lps = [0] * (len(pat) + 1)
     t = 1
     p = 0
-    print(pat[t])
     while t != len(pat):
         if pat[t] == pat[p]:
             t += 1
@@ -13,7 +12,6 @@ def LPS(pat):
             lps[t] = p
         else:
             p = lps[p]
-    print(lps)
     return lps
 
 

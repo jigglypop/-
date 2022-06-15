@@ -1,20 +1,20 @@
 def LPS(pat):
     lps = [0] * len(pat)
-    leng = 0
+    t = 0
     i = 1
     while i < len(pat):
-        if pat[i] == pat[leng]:
-            leng += 1
-            lps[i] = leng
+        if pat[i] == pat[t]:
+            t += 1
+            lps[i] = t
             i += 1
         else:
-            if leng != 0:
-                leng = lps[leng-1]
+            if t != 0:
+                t = lps[t-1]
             else:
                 lps[i] = 0
                 i += 1
     return pat, lps
 
 
-pat = 'ABXAA'
+pat = 'AABXAABA'
 print(LPS(pat))

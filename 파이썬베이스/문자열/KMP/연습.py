@@ -1,33 +1,20 @@
-def kmp(P, S):
-    N = len(S)
-    M = len(P)
-    pi = [0] * N
-    pi[0] = 0
-    j = 0
-    for i in range(1, M):
-        while j > 0 and P[j] != P[i]:
-            j = pi[j - 1]
-        if P[j] == P[i]:
-            pi[i] = j + 1
-            j += 1
+def LPS(pattern):
+    N = len(pattern)
+    results = [0] * N
+    p = 0
+    i = 1
+    while i < N:
+        if pattern[p] == pattern[i]:
+            p += 1
+            results[i] = p
+            i += 1
         else:
-            pi[i] = 0
-
-    j = 0
-    result = []
-    for i in range(N):
-        while j > 0 and P[j] != S[i]:
-            j = pi[j - 1]
-        if P[j] == S[i]:
-            if j == M - 1:
-                result.append(i - (M - 1))
-                j = pi[j - 1]
+            if p != 0:
+                p = results[p - 1]
             else:
-                j += 1
-    return result
+                results[i] = 0
+                i += 1
+    return results
 
 
-P = 'ABXAB'
-S = 'ABXABABXAB'
-
-print(kmp(P, S))
+print(LPS("AABCAAB"))
