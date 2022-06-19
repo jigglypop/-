@@ -1,6 +1,7 @@
 import sys
-sys.stdin = open("./text/18437.txt", "r")
+sys.stdin = open("./text/1037.txt", "r")
 input = sys.stdin.readline
+
 N = int(input())
 peoples = list(map(int, input().split()))
 M = int(input())
