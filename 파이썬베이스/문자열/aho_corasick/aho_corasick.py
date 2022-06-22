@@ -28,7 +28,5 @@
 #             if char not in node.children:
 #                 return False
 #             node = node.children[char]
-#         # 단어 끝까지 검사
-#         return node.word
 
 
