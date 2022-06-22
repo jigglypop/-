@@ -31,10 +31,4 @@
 #         # 단어 끝까지 검사
 #         return node.word
 
-#     def startsWith(self, prefix):
-#         node = self.root
-#         for char in prefix:
-#             if char not in node.children:
-#                 return False
-#             node = node.children[char]
 
