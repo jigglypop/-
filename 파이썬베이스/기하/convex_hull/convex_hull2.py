@@ -2,12 +2,8 @@ import sys
 sys.stdin = open("1708.txt", "r")
 input = sys.stdin.readline
 
-
 def C(t): return complex(t[0], t[1])
-
-
 def F(a, b, c): return ((b-a).conjugate()*(c-b)).imag
-
 
 N = int(input())
 L = [C(list(map(int, input().split()))) for _ in range(N)]
