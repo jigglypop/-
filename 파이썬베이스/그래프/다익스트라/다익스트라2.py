@@ -21,8 +21,7 @@ def dijkstra(start):
     dist[start] = 0
     while heap:
         w, u = heappop(heap)
-        if dist[u] < w:
-            continue
+        if dist[u] < w:continue
         for v, dw in graph[u]:
             if dist[v] > w + dw:
                 dist[v] = w + dw

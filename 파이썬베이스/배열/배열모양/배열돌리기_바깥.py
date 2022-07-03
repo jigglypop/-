@@ -30,4 +30,5 @@ while sX < eX and sY < eY:
         ny, nx = points[i]
         value = values[i]
         _board[ny][nx] = value
+        
 list(map(lambda a: print(*a), _board))
