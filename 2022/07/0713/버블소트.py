@@ -5,32 +5,34 @@ sys.stdin = open('./text/1517.txt', 'r')
 input = sys.stdin.readline
 def Split():return map(int, input().strip().split())
 def Int():return int(input().strip())
+
 N = Int()
-board = list(Split())
-_board = sorted(list(Split()))
-# board = [0] * (2 * N)
+nums = list(Split())
+_nums = sorted(nums)
+A = [i + 1 for i in range(N)]
+B = []
+maps = {}
+for i in range(len(nums)):
+    maps[nums[i]] = i + 1
 
-# def update(i, x):
-#     board[i] = x
-#     while i > 1:
-#         board[i // 2] = board[i] + board[i ^ 1]
-#         i //= 2
+for num in _nums:
+    B.append(maps[num])
+board = [0] * (N + 1)
 
-# def query(l, r):
-#     result = 0
-#     while l <= r:
-#         if l % 2 == 1:
-#             result += board[l]
-#             l += 1
-#         if r % 2 == 0:
-#             result += board[r]
-#             r -= 1
-#         l >>= 1
-#         r >>= 1
-#     return result
-    
-# result = 0
-# for i in _factory:
-#     update(i, 1)
-#     result += query(i + 1, 2 * N - 1)
-# print(result)
+def sum(i):
+    res = 0
+    while i > 0:
+        res += board[i]
+        i -= (i & -i)
+    return res
+
+def update(i, x):
+    while i < len(board):
+        board[i] += x
+        i += (i & -i)
+
+result = 0
+for b in B:
+    update(b, 1)
+    result += sum(N) - sum(b)
+print(result)
