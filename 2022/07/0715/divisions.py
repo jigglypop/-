@@ -1,11 +1,10 @@
 
-from itertools import combinations
-from math import prod
+from collections import Counter
 from random import randrange
 import sys
-sys.stdin = open("./text/13926.txt")
-input = sys.stdin.readline
+sys.stdin = open("./text/10854.txt")
 dp = [i for i in range(10000)]
+input = sys.stdin.readline
 def Split():return map(int, input().strip().split())
 def Int():return int(input().strip())
 
@@ -53,29 +52,15 @@ def pollard_rho(n):
         if d == n: return pollard_rho(n)
     return pollard_rho(d)
 
-n = Int()
-N = n
+N = int(input())
 results = []
-while n > 1:
-    div = pollard_rho(n)
+while N > 1:
+    div = pollard_rho(N)
     results.append(div)
-    n = n // div
-    results = list(set(results))
-
-_N = len(results)
-cases = [[] for _ in range(_N + 1)]
-for L in range(_N + 1):
-    for subset in combinations(results, L):
-        cases[len(subset)].append(subset)
-
-result = N
-cases = cases[1:]
-for i in range(len(cases)):
-    case = cases[i]
-    for j in range(len(case)):
-        num = N // prod(case[j])
-        if i % 2 == 0:
-            result -= num
-        else:
-            result += num
+    N = N // div
+results.sort()
+result_map = Counter(results)
+result = 1
+for v in result_map.values():
+    result *= (v + 1)
 print(result)
