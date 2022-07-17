@@ -1,4 +1,13 @@
-from math import cos, sin
+
+from math import cos, pi, sin
+import sys
+sys.stdin = open('./text/11385.txt', 'r')
+input = sys.stdin.readline
+dp = [i for i in range(10000)]
+def Split():return map(int, input().strip().split())
+def List():return list(map(int, input().strip().split()))
+def Int():return int(input().strip())
+def Str():return input().strip()
 
 def fft(board, w):
     n = len(board) // 2
@@ -27,3 +36,10 @@ def multiply(A, B):
     c = [A[i] * B[i] for i in range(n)]
     fft(c, 1 / w)
     return [round(c[i].real / n) for i in range(n)]
+
+_, _ = Split()
+C = multiply(List(), List())
+result = 0
+for c in C:
+  result ^= c
+print(result)

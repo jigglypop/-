@@ -1,16 +1,13 @@
 
 import sys
-sys.stdin = open('./text/10999.txt', 'r')
+sys.stdin = open('./text/16975.txt', 'r')
 input = sys.stdin.readline
 dp = [i for i in range(10000)]
 def Split():return map(int, input().strip().split())
+def List():return list(map(int, input().strip().split()))
 def Int():return int(input().strip())
 def Str():return input().strip()
 input = sys.stdin.readline
-N, M, K = Split()
-board = [Int() for i in range(N)]
-tree = [0] * (4 * N)
-lazy = [0] * (4 * N)
 
 def init(x, s, e):
     if s == e:
@@ -55,12 +52,16 @@ def sum(x, s, e, S, E):
     m = (s + e)//2
     return sum(2 * x, s, m, S, E) + sum(2 * x + 1, m + 1, e, S, E)
 
+N = Int()
+board = List()
+tree = [0] * (4 * N)
+lazy = [0] * (4 * N)
 init(1, 0, N - 1)
-for _ in range(M + K):
-    temp = list(Split())
+for _ in range(Int()):
+    temp = List()
     if temp[0] == 1:
         a, b, c, d = temp
         update(1, 0, N-1, b - 1, c - 1, d)
     else:
-        a, b, c = temp
-        print(sum(1, 0, N - 1, b - 1, c - 1))
+        a, b = temp
+        print(sum(1, 0, N - 1, b - 1, b - 1))
