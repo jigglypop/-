@@ -1,4 +1,4 @@
-from math import cos, sin
+from math import cos, sin, pi
 
 def fft(board, w):
     n = len(board) // 2
