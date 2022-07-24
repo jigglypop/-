@@ -1,7 +1,5 @@
-from pprint import pprint
 import sys
-from collections import deque
-sys.stdin = open('./text/1298.txt', 'r')
+sys.stdin = open('./text/1867.txt', 'r')
 input = sys.stdin.readline
 def Split():return map(int, input().strip().split())
 def List():return list(map(int, input().strip().split()))

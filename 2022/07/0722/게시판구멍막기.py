@@ -1,21 +1,20 @@
 from pprint import pprint
 import sys
-from collections import deque
-sys.stdin = open('./text/1298.txt', 'r')
+sys.stdin = open('./text/2414.txt', 'r')
 input = sys.stdin.readline
 def Split():return map(int, input().strip().split())
 def List():return list(map(int, input().strip().split()))
 def Int():return int(input().strip())
 def Str():return input().strip()
 
-N, M = Split()
-graph = [[] for _ in range(N + 1)]
-pred = [-1 for _ in range(N + 1)]
-
-for _ in range(M):
-    a, b = Split()
-    graph[a].append(b)
-
+Y, X = Split()
+board = [list(Str()) for _ in range(Y)]
+graph = [[] for _ in range(Y + 1)]
+pred = [-1 for _ in range(Y + 1)]
+for y in range(Y):
+    for x in range(X):
+        if board[y][x] == "*":
+            graph[y + 1].append(x + 1)
 
 def dfs(u):
     if not check[u]:
@@ -26,10 +25,11 @@ def dfs(u):
                 return True
         return False
 
+
 total = 0
-for i in range(1, N + 1):
-    check = [False for _ in range(N + 1)]
+for i in range(1, Y + 1):
+    check = [False for _ in range(Y + 1)]
     if dfs(i):
         total += 1
-print(total)
 
+print(total)
