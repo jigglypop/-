@@ -12,18 +12,18 @@ for _ in range(X):
 
 
 def SPFA():
-    dist = [INF] * (Y+1)
-    cycle = [0] * (Y+1)
-    dist[1] = 0
-    inQ = [False] * (Y+1)
+    dp = [INF] * (Y + 1)
+    cycle = [0] * (Y + 1)
+    dp[1] = 0
+    inQ = [False] * (Y + 1)
     Q = deque([1])
     inQ[1] = True
     while Q:
         u = Q.popleft()
         inQ[u] = False
-        for cost, v in graph[u]:
-            if dist[v] > dist[u] + cost:
-                dist[v] = dist[u] + cost
+        for w, v in graph[u]:
+            if dp[v] > dp[u] + w:
+                dp[v] = dp[u] + w
                 if not inQ[v]:
                     Q.append(v)
                     inQ[v] = True
@@ -31,8 +31,8 @@ def SPFA():
                     if cycle[v] >= Y:
                         return [-1]
     if Y == 1:
-        return [dist[1]]
-    return list(map(lambda x: x if x != INF else -1, dist[2:]))
+        return [dp[1]]
+    return list(map(lambda x: x if x != INF else -1, dp[2:]))
 
 
 results = SPFA()
