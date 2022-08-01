@@ -47,6 +47,7 @@ for T in range(Int()):
     if len(P) == 1: 
         print(int(P[0].real), int(P[0].imag))
     else:
+        print(P)
         P = convex_hull(P)
         Max_P = calipers(P)
         print(int(Max_P[0].real), int(Max_P[0].imag), int(Max_P[1].real), int(Max_P[1].imag))
