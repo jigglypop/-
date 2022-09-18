@@ -1,5 +1,6 @@
 from collections import deque
 from copy import copy
+from pprint import pprint
 import sys
 sys.stdin = open('./text/17412.txt', 'r')
 input = sys.stdin.readline
@@ -16,15 +17,23 @@ def A(v, Args):
 
 N, P = Split()
 S = 1
-E = 2
-graph = A([], N + 1)
-C = A(0, [N + 1, N + 1])
-F = A(0, [N + 1, N + 1])
+E = 2 + N
+MAX = 2 * N + 1
+graph = A([], MAX)
+C = A(0, [MAX, MAX])
+F = A(0, [MAX, MAX])
+for i in range(1, N + 1):
+    graph[i + N].append(i)
+    graph[i].append(i + N)
+    C[i + N][i] = 1
 for _ in range(P):
     u, v = Split()
-    graph[u].append(v)
-    graph[v].append(u)
-    C[u][v] = 1
+    graph[u].append(v + N)
+    graph[v].append(u + N)
+    graph[u + N].append(v)
+    graph[v + N].append(u)
+    C[u][v + N] = 1
+    C[v][u + N] = 1
 
 def bfs(u):
     Q = deque([u])
@@ -37,16 +46,14 @@ def bfs(u):
 
 count = 0
 while True:
-    parent = [-1] * (N + 1)
+    parent = [-1] * MAX
     parent[S] = S
     bfs(S)
-    if parent[E] == -1:
-        break
+    if parent[E] == -1:break
     v = E
     while v != S:
-        F[parent[v]][v] += 1 
+        F[parent[v]][v] += 1
         F[v][parent[v]] -= 1
         v = parent[v]
     count += 1
 print(count)
-    
