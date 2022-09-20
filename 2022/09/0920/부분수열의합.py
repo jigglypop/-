@@ -1,21 +1,16 @@
 import sys
 sys.stdin = open('./text/1182.txt', 'r')
 input = sys.stdin.readline
-def List():return list(map(str, input().strip().split()))
-def Int():return int(input().strip())
-S = 0b0
-for _ in range(Int()):
-    temp = List()
-    if temp[0] == 'all':
-        S = 0b111111111111111111111
-    elif temp[0] == 'empty':
-        S = 0
-    elif temp[0] == 'add':
-        S |= (0b1 << int(temp[1]))
-    elif temp[0] == 'remove':
-        S &= ~(0b1 << int(temp[1]))
-    elif temp[0] == 'check':
-        print(int(S & (0b1 << int(temp[1])) != 0))
-    elif temp[0] == 'toggle':
-        S ^= (0b1 << int(temp[1]))
-
+def Split():return map(int, input().strip().split())
+def List():return list(map(int, input().strip().split()))
+N, S = Split()
+nums = List()
+count = 0
+for i in range(1, 1 << N):
+    _S = 0
+    for j in range(N):
+        if i & (1 << j):
+            _S += nums[j]
+    if _S == S :
+        count += 1
+print(count)
