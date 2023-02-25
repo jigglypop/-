@@ -1,42 +1,21 @@
-import sys
-# 10868
-sys.stdin = open('10868.txt', 'r')
+from datetime import datetime
 
-input = sys.stdin.readline
-N, M = map(int, input().split())
-board = [int(input()) for _ in range(N)]
-tree = [0] * (4*N)
-
-
-def init(x, start, end):
-    if start == end:
-        tree[x] = board[end]
+# 해당하는 답을 맞춰주세요
+# 답을 맞추시고 조건을 충족하신 분께 상품을 드립니다! 
+# answer = 여러분의 답
+def question(answer):
+    front_name = "개숲이"
+    if front_name[1] != answer[1]:
+        if answer.islookslike == front_name and answer.isSimilar == your_sungdaemosa:
+            return True
+        else:
+            return False
     else:
-        mid = (start + end) // 2
-        init(2 * x, start, mid)
-        init(2 * x + 1, mid + 1, end)
-        tree[x] = min(tree[2 * x], tree[2 * x + 1])
+        return False 
 
-
-init(1, 0, N-1)
-
-
-def query(x, start, end, S, E):
-    if end < S or start > E:
-        return -1
-    if start >= S and end <= E:
-        return tree[x]
-    mid = (start + end) // 2
-    left = query(2 * x, start, mid, S, E)
-    right = query(2 * x + 1, mid + 1, end, S, E)
-    if left == -1:
-        return right
-    elif right == -1:
-        return left
-    else:
-        return min(left, right)
-
-
-for _ in range(M):
-    start, end = map(int, input().split())
-    print(query(1, 0, N-1, start-1, end-1))
+def result():
+    time = datetime.now
+    if question() and time.time() == 21:
+        return "상품권 10000원"
+    
+result(answer)
