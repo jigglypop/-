@@ -1,4 +1,4 @@
-nums = [[25, "롯데"], [150, "전통"], [90, "DMZ"], [100, "갈라"], [400, "부산"]]
+nums = [[25, "롯데"], [150, "전통"], [100, "갈라"], [400, "부산"]]
 result = []
 
 
@@ -12,3 +12,4 @@ subset(0, [], 80)
 for r in sorted(result):
     print(r)
 print(len(result))
+print(len(set(result)))
