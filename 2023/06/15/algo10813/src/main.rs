@@ -18,10 +18,15 @@ fn main() {
         let [mut a, mut b] = [0;2].map(|_| read() as usize);
         a -= 1;
         b -= 1;
-        let _a = board[a];
-        let _b = board[b];
-        board[a] = _b;
-        board[b] = _a;
+        let mut N = b - a + 1;
+        let mut temp = vec![0;N];
+        for i in 0..N {
+            temp[i] = board[b - i];
+        }
+        for i in 0..N {
+            board[a + i] = temp[i];
+        }
+
     }
     for i in 0..Y {
         print!("{} ", board[i]);
