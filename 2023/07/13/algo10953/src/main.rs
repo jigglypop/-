@@ -15,20 +15,20 @@ fn split() -> Vec<i32> {
 }
 
 
-fn split_comma() -> Vec<&'static str> {
+fn split_comma() -> Vec<i32> {
     let input = input();
-    let v: Vec<&str>  = input
-        .split(',').collect();
+    let v: Vec<i32> = input
+        .split(',')
+        .map(|s| String::from(s).trim().parse::<i32>().unwrap())
+        .collect();
     v
 }
-
 
 fn main() {
     let input = split();
     let n = input[0];
-    println!("{}", n);
     for _ in 0..n {
         let input = split_comma();
-        println!("{} {}", input[0], input[1]);
+        println!("{}", input[0] + input[1]);
     }
 }
